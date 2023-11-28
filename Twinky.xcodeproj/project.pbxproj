@@ -1,0 +1,516 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7B5AA2072B15FBF80052237D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA2062B15FBF80052237D /* AppDelegate.swift */; };
+		7B5AA2092B15FBF80052237D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA2082B15FBF80052237D /* SceneDelegate.swift */; };
+		7B5AA20B2B15FBF80052237D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA20A2B15FBF80052237D /* HomeViewController.swift */; };
+		7B5AA20E2B15FBF80052237D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA20C2B15FBF80052237D /* Main.storyboard */; };
+		7B5AA2102B15FBF90052237D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA20F2B15FBF90052237D /* Assets.xcassets */; };
+		7B5AA2132B15FBF90052237D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA2112B15FBF90052237D /* LaunchScreen.storyboard */; };
+		7B5AA21E2B15FDF20052237D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA21D2B15FDF20052237D /* TabBarController.swift */; };
+		7B5AA2202B1600AB0052237D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA21F2B1600AB0052237D /* ProfileViewController.swift */; };
+		7B5AA2252B1605A00052237D /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA2242B1605A00052237D /* AppColors.swift */; };
+		7B5AA2282B1607830052237D /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA2272B1607830052237D /* UIColor + Extensions.swift */; };
+		7B5AA22A2B1609EE0052237D /* UIFont + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA2292B1609EE0052237D /* UIFont + Extensions.swift */; };
+		7B5AA23C2B160AAA0052237D /* SourceSans3-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA22C2B160AAA0052237D /* SourceSans3-ExtraLightItalic.ttf */; };
+		7B5AA23D2B160AAA0052237D /* SourceSans3-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA22D2B160AAA0052237D /* SourceSans3-Light.ttf */; };
+		7B5AA23E2B160AAA0052237D /* SourceSans3-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA22E2B160AAA0052237D /* SourceSans3-SemiBoldItalic.ttf */; };
+		7B5AA23F2B160AAA0052237D /* SourceSans3-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA22F2B160AAA0052237D /* SourceSans3-MediumItalic.ttf */; };
+		7B5AA2402B160AAA0052237D /* SourceSans3-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA2302B160AAA0052237D /* SourceSans3-SemiBold.ttf */; };
+		7B5AA2412B160AAA0052237D /* SourceSans3-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA2312B160AAA0052237D /* SourceSans3-BoldItalic.ttf */; };
+		7B5AA2422B160AAA0052237D /* SourceSans3-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA2322B160AAA0052237D /* SourceSans3-Italic.ttf */; };
+		7B5AA2432B160AAA0052237D /* SourceSans3-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA2332B160AAA0052237D /* SourceSans3-ExtraBold.ttf */; };
+		7B5AA2442B160AAA0052237D /* SourceSans3-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA2342B160AAA0052237D /* SourceSans3-Black.ttf */; };
+		7B5AA2452B160AAA0052237D /* SourceSans3-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA2352B160AAA0052237D /* SourceSans3-Medium.ttf */; };
+		7B5AA2462B160AAA0052237D /* SourceSans3-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA2362B160AAA0052237D /* SourceSans3-Bold.ttf */; };
+		7B5AA2472B160AAA0052237D /* SourceSans3-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA2372B160AAA0052237D /* SourceSans3-Regular.ttf */; };
+		7B5AA2482B160AAA0052237D /* SourceSans3-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA2382B160AAA0052237D /* SourceSans3-ExtraLight.ttf */; };
+		7B5AA2492B160AAA0052237D /* SourceSans3-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA2392B160AAA0052237D /* SourceSans3-LightItalic.ttf */; };
+		7B5AA24A2B160AAA0052237D /* SourceSans3-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA23A2B160AAA0052237D /* SourceSans3-BlackItalic.ttf */; };
+		7B5AA24B2B160AAA0052237D /* SourceSans3-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA23B2B160AAA0052237D /* SourceSans3-ExtraBoldItalic.ttf */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		7B5AA2032B15FBF80052237D /* Twinky.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twinky.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7B5AA2062B15FBF80052237D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7B5AA2082B15FBF80052237D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7B5AA20A2B15FBF80052237D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		7B5AA20D2B15FBF80052237D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7B5AA20F2B15FBF90052237D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7B5AA2122B15FBF90052237D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7B5AA2142B15FBF90052237D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B5AA21D2B15FDF20052237D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		7B5AA21F2B1600AB0052237D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		7B5AA2242B1605A00052237D /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
+		7B5AA2272B1607830052237D /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
+		7B5AA2292B1609EE0052237D /* UIFont + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extensions.swift"; sourceTree = "<group>"; };
+		7B5AA22C2B160AAA0052237D /* SourceSans3-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
+		7B5AA22D2B160AAA0052237D /* SourceSans3-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Light.ttf"; sourceTree = "<group>"; };
+		7B5AA22E2B160AAA0052237D /* SourceSans3-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		7B5AA22F2B160AAA0052237D /* SourceSans3-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-MediumItalic.ttf"; sourceTree = "<group>"; };
+		7B5AA2302B160AAA0052237D /* SourceSans3-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-SemiBold.ttf"; sourceTree = "<group>"; };
+		7B5AA2312B160AAA0052237D /* SourceSans3-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-BoldItalic.ttf"; sourceTree = "<group>"; };
+		7B5AA2322B160AAA0052237D /* SourceSans3-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Italic.ttf"; sourceTree = "<group>"; };
+		7B5AA2332B160AAA0052237D /* SourceSans3-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraBold.ttf"; sourceTree = "<group>"; };
+		7B5AA2342B160AAA0052237D /* SourceSans3-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Black.ttf"; sourceTree = "<group>"; };
+		7B5AA2352B160AAA0052237D /* SourceSans3-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Medium.ttf"; sourceTree = "<group>"; };
+		7B5AA2362B160AAA0052237D /* SourceSans3-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Bold.ttf"; sourceTree = "<group>"; };
+		7B5AA2372B160AAA0052237D /* SourceSans3-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-Regular.ttf"; sourceTree = "<group>"; };
+		7B5AA2382B160AAA0052237D /* SourceSans3-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraLight.ttf"; sourceTree = "<group>"; };
+		7B5AA2392B160AAA0052237D /* SourceSans3-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-LightItalic.ttf"; sourceTree = "<group>"; };
+		7B5AA23A2B160AAA0052237D /* SourceSans3-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-BlackItalic.ttf"; sourceTree = "<group>"; };
+		7B5AA23B2B160AAA0052237D /* SourceSans3-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7B5AA2002B15FBF80052237D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7B5AA1FA2B15FBF80052237D = {
+			isa = PBXGroup;
+			children = (
+				7B5AA2052B15FBF80052237D /* Twinky */,
+				7B5AA2042B15FBF80052237D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7B5AA2042B15FBF80052237D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AA2032B15FBF80052237D /* Twinky.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7B5AA2052B15FBF80052237D /* Twinky */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AA2262B1607690052237D /* Extensions */,
+				7B5AA2232B1605830052237D /* Models */,
+				7B5AA21C2B15FD8F0052237D /* Navigation */,
+				7B5AA21B2B15FD490052237D /* ViewControllers */,
+				7B5AA21A2B15FD340052237D /* Resources */,
+				7B5AA22B2B160A840052237D /* Fonts */,
+				7B5AA20C2B15FBF80052237D /* Main.storyboard */,
+				7B5AA2112B15FBF90052237D /* LaunchScreen.storyboard */,
+				7B5AA2142B15FBF90052237D /* Info.plist */,
+			);
+			path = Twinky;
+			sourceTree = "<group>";
+		};
+		7B5AA21A2B15FD340052237D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AA2062B15FBF80052237D /* AppDelegate.swift */,
+				7B5AA2082B15FBF80052237D /* SceneDelegate.swift */,
+				7B5AA20F2B15FBF90052237D /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7B5AA21B2B15FD490052237D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AA2222B1601B70052237D /* HomeViewController */,
+				7B5AA2212B1600D80052237D /* ProfileViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		7B5AA21C2B15FD8F0052237D /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AA21D2B15FDF20052237D /* TabBarController.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		7B5AA2212B1600D80052237D /* ProfileViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AA21F2B1600AB0052237D /* ProfileViewController.swift */,
+			);
+			path = ProfileViewController;
+			sourceTree = "<group>";
+		};
+		7B5AA2222B1601B70052237D /* HomeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AA20A2B15FBF80052237D /* HomeViewController.swift */,
+			);
+			path = HomeViewController;
+			sourceTree = "<group>";
+		};
+		7B5AA2232B1605830052237D /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AA2242B1605A00052237D /* AppColors.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7B5AA2262B1607690052237D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AA2272B1607830052237D /* UIColor + Extensions.swift */,
+				7B5AA2292B1609EE0052237D /* UIFont + Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		7B5AA22B2B160A840052237D /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AA2342B160AAA0052237D /* SourceSans3-Black.ttf */,
+				7B5AA23A2B160AAA0052237D /* SourceSans3-BlackItalic.ttf */,
+				7B5AA2362B160AAA0052237D /* SourceSans3-Bold.ttf */,
+				7B5AA2312B160AAA0052237D /* SourceSans3-BoldItalic.ttf */,
+				7B5AA2332B160AAA0052237D /* SourceSans3-ExtraBold.ttf */,
+				7B5AA23B2B160AAA0052237D /* SourceSans3-ExtraBoldItalic.ttf */,
+				7B5AA2382B160AAA0052237D /* SourceSans3-ExtraLight.ttf */,
+				7B5AA22C2B160AAA0052237D /* SourceSans3-ExtraLightItalic.ttf */,
+				7B5AA2322B160AAA0052237D /* SourceSans3-Italic.ttf */,
+				7B5AA22D2B160AAA0052237D /* SourceSans3-Light.ttf */,
+				7B5AA2392B160AAA0052237D /* SourceSans3-LightItalic.ttf */,
+				7B5AA2352B160AAA0052237D /* SourceSans3-Medium.ttf */,
+				7B5AA22F2B160AAA0052237D /* SourceSans3-MediumItalic.ttf */,
+				7B5AA2372B160AAA0052237D /* SourceSans3-Regular.ttf */,
+				7B5AA2302B160AAA0052237D /* SourceSans3-SemiBold.ttf */,
+				7B5AA22E2B160AAA0052237D /* SourceSans3-SemiBoldItalic.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7B5AA2022B15FBF80052237D /* Twinky */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7B5AA2172B15FBF90052237D /* Build configuration list for PBXNativeTarget "Twinky" */;
+			buildPhases = (
+				7B5AA1FF2B15FBF80052237D /* Sources */,
+				7B5AA2002B15FBF80052237D /* Frameworks */,
+				7B5AA2012B15FBF80052237D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Twinky;
+			productName = Twinky;
+			productReference = 7B5AA2032B15FBF80052237D /* Twinky.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7B5AA1FB2B15FBF80052237D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					7B5AA2022B15FBF80052237D = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = 7B5AA1FE2B15FBF80052237D /* Build configuration list for PBXProject "Twinky" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7B5AA1FA2B15FBF80052237D;
+			productRefGroup = 7B5AA2042B15FBF80052237D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7B5AA2022B15FBF80052237D /* Twinky */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7B5AA2012B15FBF80052237D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5AA23C2B160AAA0052237D /* SourceSans3-ExtraLightItalic.ttf in Resources */,
+				7B5AA2402B160AAA0052237D /* SourceSans3-SemiBold.ttf in Resources */,
+				7B5AA2412B160AAA0052237D /* SourceSans3-BoldItalic.ttf in Resources */,
+				7B5AA24B2B160AAA0052237D /* SourceSans3-ExtraBoldItalic.ttf in Resources */,
+				7B5AA2492B160AAA0052237D /* SourceSans3-LightItalic.ttf in Resources */,
+				7B5AA24A2B160AAA0052237D /* SourceSans3-BlackItalic.ttf in Resources */,
+				7B5AA2472B160AAA0052237D /* SourceSans3-Regular.ttf in Resources */,
+				7B5AA2462B160AAA0052237D /* SourceSans3-Bold.ttf in Resources */,
+				7B5AA2432B160AAA0052237D /* SourceSans3-ExtraBold.ttf in Resources */,
+				7B5AA23F2B160AAA0052237D /* SourceSans3-MediumItalic.ttf in Resources */,
+				7B5AA2132B15FBF90052237D /* LaunchScreen.storyboard in Resources */,
+				7B5AA2482B160AAA0052237D /* SourceSans3-ExtraLight.ttf in Resources */,
+				7B5AA2102B15FBF90052237D /* Assets.xcassets in Resources */,
+				7B5AA20E2B15FBF80052237D /* Main.storyboard in Resources */,
+				7B5AA2442B160AAA0052237D /* SourceSans3-Black.ttf in Resources */,
+				7B5AA2452B160AAA0052237D /* SourceSans3-Medium.ttf in Resources */,
+				7B5AA23D2B160AAA0052237D /* SourceSans3-Light.ttf in Resources */,
+				7B5AA2422B160AAA0052237D /* SourceSans3-Italic.ttf in Resources */,
+				7B5AA23E2B160AAA0052237D /* SourceSans3-SemiBoldItalic.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7B5AA1FF2B15FBF80052237D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7B5AA20B2B15FBF80052237D /* HomeViewController.swift in Sources */,
+				7B5AA2252B1605A00052237D /* AppColors.swift in Sources */,
+				7B5AA21E2B15FDF20052237D /* TabBarController.swift in Sources */,
+				7B5AA2282B1607830052237D /* UIColor + Extensions.swift in Sources */,
+				7B5AA22A2B1609EE0052237D /* UIFont + Extensions.swift in Sources */,
+				7B5AA2202B1600AB0052237D /* ProfileViewController.swift in Sources */,
+				7B5AA2072B15FBF80052237D /* AppDelegate.swift in Sources */,
+				7B5AA2092B15FBF80052237D /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7B5AA20C2B15FBF80052237D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B5AA20D2B15FBF80052237D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7B5AA2112B15FBF90052237D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7B5AA2122B15FBF90052237D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		7B5AA2152B15FBF90052237D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7B5AA2162B15FBF90052237D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7B5AA2182B15FBF90052237D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Twinky/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = iseedeadpeople.Twinky;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7B5AA2192B15FBF90052237D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Twinky/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = iseedeadpeople.Twinky;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7B5AA1FE2B15FBF80052237D /* Build configuration list for PBXProject "Twinky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B5AA2152B15FBF90052237D /* Debug */,
+				7B5AA2162B15FBF90052237D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7B5AA2172B15FBF90052237D /* Build configuration list for PBXNativeTarget "Twinky" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7B5AA2182B15FBF90052237D /* Debug */,
+				7B5AA2192B15FBF90052237D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7B5AA1FB2B15FBF80052237D /* Project object */;
+}
