@@ -15,4 +15,12 @@ extension UIColor {
     static var titleColor: UIColor {
         return UIColor(named: "title") ?? .black
     }
+    
+    static var iconColor: UIColor {
+        return UIColor(named: "icon") ?? .black
+    }
+    
+    static var iconTouchedColor: UIColor {
+        return UIColor(named: "iconTouched") ?? .black
+    }
 }
