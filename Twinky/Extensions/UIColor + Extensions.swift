@@ -23,4 +23,8 @@ extension UIColor {
     static var iconTouchedColor: UIColor {
         return UIColor(named: "iconTouched") ?? .black
     }
+    
+    static var cellColor: UIColor {
+        return UIColor(named: "cell") ?? .black
+    }
 }
