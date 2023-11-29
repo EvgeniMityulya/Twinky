@@ -15,7 +15,6 @@
 		7B5AA2132B15FBF90052237D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA2112B15FBF90052237D /* LaunchScreen.storyboard */; };
 		7B5AA21E2B15FDF20052237D /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA21D2B15FDF20052237D /* TabBarController.swift */; };
 		7B5AA2202B1600AB0052237D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA21F2B1600AB0052237D /* ProfileViewController.swift */; };
-		7B5AA2252B1605A00052237D /* AppColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA2242B1605A00052237D /* AppColors.swift */; };
 		7B5AA2282B1607830052237D /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA2272B1607830052237D /* UIColor + Extensions.swift */; };
 		7B5AA22A2B1609EE0052237D /* UIFont + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA2292B1609EE0052237D /* UIFont + Extensions.swift */; };
 		7B5AA23C2B160AAA0052237D /* SourceSans3-ExtraLightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA22C2B160AAA0052237D /* SourceSans3-ExtraLightItalic.ttf */; };
@@ -35,6 +34,8 @@
 		7B5AA24A2B160AAA0052237D /* SourceSans3-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA23A2B160AAA0052237D /* SourceSans3-BlackItalic.ttf */; };
 		7B5AA24B2B160AAA0052237D /* SourceSans3-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B5AA23B2B160AAA0052237D /* SourceSans3-ExtraBoldItalic.ttf */; };
 		7B5AA2772B167FD60052237D /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA2762B167FD60052237D /* UserInfoView.swift */; };
+		7B5AA27C2B17B4280052237D /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA27B2B17B4280052237D /* UIView + Extensions.swift */; };
+		7B5AA27E2B17B47F0052237D /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA27D2B17B47F0052237D /* UIStackView + Extensions.swift */; };
 		8407C9522B17139200808DA4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C9512B17139200808DA4 /* SettingsViewController.swift */; };
 		8407C9552B1716A100808DA4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8407C9542B1716A100808DA4 /* SnapKit */; };
 		8407C9572B1716A100808DA4 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8407C9562B1716A100808DA4 /* SnapKit-Dynamic */; };
@@ -54,7 +55,6 @@
 		7B5AA2142B15FBF90052237D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7B5AA21D2B15FDF20052237D /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		7B5AA21F2B1600AB0052237D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		7B5AA2242B1605A00052237D /* AppColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColors.swift; sourceTree = "<group>"; };
 		7B5AA2272B1607830052237D /* UIColor + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
 		7B5AA2292B1609EE0052237D /* UIFont + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extensions.swift"; sourceTree = "<group>"; };
 		7B5AA22C2B160AAA0052237D /* SourceSans3-ExtraLightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraLightItalic.ttf"; sourceTree = "<group>"; };
@@ -74,6 +74,8 @@
 		7B5AA23A2B160AAA0052237D /* SourceSans3-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-BlackItalic.ttf"; sourceTree = "<group>"; };
 		7B5AA23B2B160AAA0052237D /* SourceSans3-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		7B5AA2762B167FD60052237D /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		7B5AA27B2B17B4280052237D /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
+		7B5AA27D2B17B47F0052237D /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
 		8407C9512B17139200808DA4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8407C9582B172ABD00808DA4 /* SettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableCell.swift; sourceTree = "<group>"; };
 		8407C95A2B17395B00808DA4 /* ProfileSettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableCell.swift; sourceTree = "<group>"; };
@@ -112,6 +114,7 @@
 		7B5AA2052B15FBF80052237D /* Twinky */ = {
 			isa = PBXGroup;
 			children = (
+				7B5AA2782B17AB210052237D /* Enums */,
 				7B5AA2262B1607690052237D /* Extensions */,
 				7B5AA2232B1605830052237D /* Models */,
 				7B5AA2752B167F910052237D /* CustomViews */,
@@ -173,7 +176,6 @@
 		7B5AA2232B1605830052237D /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				7B5AA2242B1605A00052237D /* AppColors.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -183,6 +185,8 @@
 			children = (
 				7B5AA2272B1607830052237D /* UIColor + Extensions.swift */,
 				7B5AA2292B1609EE0052237D /* UIFont + Extensions.swift */,
+				7B5AA27B2B17B4280052237D /* UIView + Extensions.swift */,
+				7B5AA27D2B17B47F0052237D /* UIStackView + Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -216,6 +220,13 @@
 				7B5AA2762B167FD60052237D /* UserInfoView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		7B5AA2782B17AB210052237D /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 		8407C9502B17136B00808DA4 /* SettingsViewController */ = {
@@ -331,9 +342,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B5AA27E2B17B47F0052237D /* UIStackView + Extensions.swift in Sources */,
+				7B5AA27C2B17B4280052237D /* UIView + Extensions.swift in Sources */,
 				7B5AA2772B167FD60052237D /* UserInfoView.swift in Sources */,
 				7B5AA20B2B15FBF80052237D /* HomeViewController.swift in Sources */,
-				7B5AA2252B1605A00052237D /* AppColors.swift in Sources */,
 				8407C9522B17139200808DA4 /* SettingsViewController.swift in Sources */,
 				7B5AA21E2B15FDF20052237D /* TabBarController.swift in Sources */,
 				7B5AA2282B1607830052237D /* UIColor + Extensions.swift in Sources */,

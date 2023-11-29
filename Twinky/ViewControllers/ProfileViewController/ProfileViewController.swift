@@ -6,36 +6,73 @@
 //
 
 import UIKit
+import SnapKit
 
 final class ProfileViewController: UIViewController {
-    private let nameLabel = UILabel()
-    private let settingsButton = UIButton()
-    private let aboutView = UIView()
-    private let userImageView = UIImageView()
-    private let userStackView = UIStackView()
-    private let userFavouriteFilmView = UserInfoView(width: 200, height: 100, title: "2131", subtitle: "asda")
-    private let userContactsView = UserInfoView(width: 200, height: 100, title: "2131", subtitle: "asda")
+    private lazy var nameLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "John Doe"
+        lbl.textColor = .titleColor
+        lbl.font = .sourceSans(ofSize: 35, style: .black)
+        return lbl
+    }()
+    
+    private lazy var settingsButton: UIButton = {
+        let btn = UIButton()
+        let config = UIImage.SymbolConfiguration(pointSize: 35)
+        let settingsImage = UIImage(systemName: "gearshape.circle.fill", withConfiguration: config)?.withTintColor(.iconColor, renderingMode: .alwaysOriginal)
+        let settingsImageTapped = UIImage(systemName: "gearshape.circle.fill", withConfiguration: config)?.withTintColor(.iconTouched, renderingMode: .alwaysOriginal)
+        
+        btn.setImage(settingsImage, for: .normal)
+        btn.setImage(settingsImageTapped, for: .highlighted)
+        
+        btn.addTarget(self, action: #selector(settingsButtonTouchUpInside), for: .touchUpInside)
+        return btn
+    }()
+    
+    private lazy var userImageView: UIImageView = {
+        let imgv = UIImageView()
+        imgv.clipsToBounds = true
+        imgv.image = UIImage(named: "userPhoto")
+        imgv.contentMode = .scaleAspectFill
+        imgv.layer.cornerRadius = 20
+        return imgv
+    }()
+    
+    private lazy var userStackView: UIStackView = {
+        let stcv = UIStackView()
+        stcv.axis = .vertical
+        stcv.backgroundColor = .clear
+        stcv.distribution = .fillEqually
+        stcv.spacing = 10
+        return stcv
+    }()
+    
+    private var userFilmsView = UserInfoView()
+    private var userContactsView = UserInfoView()
+    private var userGenreView = UserInfoView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        configureNavigation()
         configureViewColors()
         configureConstraints()
-        configureLabels()
         configureButtons()
-        
+        configureUserInfo()
     }
     
+    private func configureNavigation() {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
     
     private func configureViewColors() {
         view.backgroundColor = .backgroundViewColor
-        aboutView.backgroundColor = .red
     }
     
-    private func configureLabels() {
-        nameLabel.text = "John Doe"
-        nameLabel.textColor = .titleColor
-        nameLabel.font = UIFont.sourceSans(ofSize: 32, style: .black)
+    private func configureUserInfo() {
+        userFilmsView.configureView(title: "125", subtitle: "Films")
+        userContactsView.configureView(title: "31", subtitle: "Contacts")
+        userGenreView.configureView(title: "7", subtitle: "Genres")
     }
     
     private func configureButtons() {
@@ -50,52 +87,43 @@ final class ProfileViewController: UIViewController {
     }
     
     private func configureConstraints() {
-        nameLabel.translatesAutoresizingMaskIntoConstraints = false
-        settingsButton.translatesAutoresizingMaskIntoConstraints = false
-        aboutView.translatesAutoresizingMaskIntoConstraints = false
-        userImageView.translatesAutoresizingMaskIntoConstraints = false
-        userStackView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(
+            nameLabel,
+            settingsButton,
+            userImageView,
+            userStackView
+        )
         
-        view.addSubview(nameLabel)
-        view.addSubview(settingsButton)
-        view.addSubview(aboutView)
-        view.addSubview(userImageView)
-        view.addSubview(userStackView)
+        userStackView.addArrangedSubview(
+            userFilmsView,
+            userContactsView,
+            userGenreView
+        )
         
-        userStackView.addArrangedSubview(userFavouriteFilmView)
-        userStackView.addArrangedSubview(userContactsView)
+        nameLabel.snp.makeConstraints { make in
+            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.leading.equalTo(20)
+            make.trailing.equalTo(settingsButton.snp.leading).offset(-10)
+        }
         
-        nameLabel.centerYAnchor.constraint(equalTo: settingsButton.centerYAnchor).isActive = true
-        nameLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        nameLabel.trailingAnchor.constraint(equalTo: settingsButton.leadingAnchor, constant: -20).isActive = true
+        settingsButton.snp.makeConstraints { make in
+            make.centerY.equalTo(nameLabel.snp.centerY)
+            make.trailing.equalTo(-20)
+        }
         
-        settingsButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        settingsButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15).isActive = true
-//        settingsButton.heightAnchor.constraint(equalToConstant: 100).isActive = true
-//        settingsButton.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        userImageView.snp.makeConstraints { make in
+            make.top.equalTo(nameLabel.snp.bottom).offset(20)
+            make.leading.equalToSuperview().offset(20)
+            make.width.equalTo(220)
+            make.height.equalTo(250)
+        }
         
-        aboutView.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 20).isActive = true
-        aboutView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-        aboutView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-        aboutView.heightAnchor.constraint(equalToConstant: 220).isActive = true
-        
-        userImageView.clipsToBounds = true
-        userImageView.image = UIImage(named: "userPhoto")
-        userImageView.contentMode = .scaleAspectFill
-        userImageView.layer.cornerRadius = 20
-        
-        userImageView.topAnchor.constraint(equalTo: aboutView.topAnchor).isActive = true
-        userImageView.leadingAnchor.constraint(equalTo: aboutView.leadingAnchor).isActive = true
-        userImageView.bottomAnchor.constraint(equalTo: aboutView.bottomAnchor).isActive = true
-        userImageView.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        userImageView.heightAnchor.constraint(equalToConstant: 220).isActive = true
-        
-        userStackView.topAnchor.constraint(equalTo: aboutView.topAnchor).isActive = true
-        userStackView.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 10).isActive = true
-        userStackView.trailingAnchor.constraint(equalTo: aboutView.trailingAnchor).isActive = true
-        userStackView.bottomAnchor.constraint(equalTo: aboutView.bottomAnchor).isActive = true
-        userStackView.axis = .vertical
-        userStackView.backgroundColor = .blue
+        userStackView.snp.makeConstraints { make in
+            make.top.equalTo(userImageView.snp.top)
+            make.trailing.equalToSuperview().offset(-20)
+            make.leading.equalTo(userImageView.snp.trailing).offset(10)
+            make.bottom.equalTo(userImageView.snp.bottom)
+        }
     }
     
     @objc private func settingsButtonTouchUpInside() {
