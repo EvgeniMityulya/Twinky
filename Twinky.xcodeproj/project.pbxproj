@@ -38,6 +38,9 @@
 		8407C9522B17139200808DA4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C9512B17139200808DA4 /* SettingsViewController.swift */; };
 		8407C9552B1716A100808DA4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8407C9542B1716A100808DA4 /* SnapKit */; };
 		8407C9572B1716A100808DA4 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8407C9562B1716A100808DA4 /* SnapKit-Dynamic */; };
+		8407C9592B172ABD00808DA4 /* SettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C9582B172ABD00808DA4 /* SettingsTableCell.swift */; };
+		8407C95B2B17395B00808DA4 /* ProfileSettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C95A2B17395B00808DA4 /* ProfileSettingsTableCell.swift */; };
+		8407C95D2B17BA8900808DA4 /* ProfileSettingsCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C95C2B17BA8900808DA4 /* ProfileSettingsCellContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -72,6 +75,9 @@
 		7B5AA23B2B160AAA0052237D /* SourceSans3-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceSans3-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
 		7B5AA2762B167FD60052237D /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		8407C9512B17139200808DA4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		8407C9582B172ABD00808DA4 /* SettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableCell.swift; sourceTree = "<group>"; };
+		8407C95A2B17395B00808DA4 /* ProfileSettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableCell.swift; sourceTree = "<group>"; };
+		8407C95C2B17BA8900808DA4 /* ProfileSettingsCellContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsCellContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,9 +221,20 @@
 		8407C9502B17136B00808DA4 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				8407C95E2B17C51500808DA4 /* Data */,
 				8407C9512B17139200808DA4 /* SettingsViewController.swift */,
+				8407C9582B172ABD00808DA4 /* SettingsTableCell.swift */,
+				8407C95A2B17395B00808DA4 /* ProfileSettingsTableCell.swift */,
 			);
 			path = SettingsViewController;
+			sourceTree = "<group>";
+		};
+		8407C95E2B17C51500808DA4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				8407C95C2B17BA8900808DA4 /* ProfileSettingsCellContent.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -320,9 +337,12 @@
 				8407C9522B17139200808DA4 /* SettingsViewController.swift in Sources */,
 				7B5AA21E2B15FDF20052237D /* TabBarController.swift in Sources */,
 				7B5AA2282B1607830052237D /* UIColor + Extensions.swift in Sources */,
+				8407C95D2B17BA8900808DA4 /* ProfileSettingsCellContent.swift in Sources */,
+				8407C9592B172ABD00808DA4 /* SettingsTableCell.swift in Sources */,
 				7B5AA22A2B1609EE0052237D /* UIFont + Extensions.swift in Sources */,
 				7B5AA2202B1600AB0052237D /* ProfileViewController.swift in Sources */,
 				7B5AA2072B15FBF80052237D /* AppDelegate.swift in Sources */,
+				8407C95B2B17395B00808DA4 /* ProfileSettingsTableCell.swift in Sources */,
 				7B5AA2092B15FBF80052237D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
