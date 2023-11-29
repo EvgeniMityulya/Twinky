@@ -75,7 +75,7 @@ class SettingsViewController: UIViewController {
         view.addSubview(signOutButton)
         
         titleLabel.snp.makeConstraints {
-            $0.left.equalTo(20)
+            $0.left.equalTo(30)
             $0.top.equalTo(60)
         }
         
@@ -148,7 +148,7 @@ extension SettingsViewController: UITableViewDataSource {
     
     func configureCellView(forCell cell: UITableViewCell) {
         cell.accessoryType = .disclosureIndicator
-        cell.layer.borderWidth = 0.5
+        cell.layer.borderWidth = 0.7
         cell.layer.borderColor = UIColor(named: "backgroundViewSecondary")?.cgColor
     }
     
