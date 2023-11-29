@@ -19,14 +19,14 @@ class TabBarController: UITabBarController {
         let homeViewController = HomeViewController()
 //        let favouriteViewController = FavouriteViewController()
 //        let announcementViewController = AnnouncementViewController()
-//        let dialogViewController = DialogViewController()
+        let settingsViewController = SettingsViewController()
         let profileViewController = ProfileViewController()
         
         // MARK: - Navigation
         let navHomeViewController = UINavigationController(rootViewController: homeViewController)
 //        let navFavouriteController = UINavigationController(rootViewController: favouriteViewController)
 //        let navAnnouncementViewController = UINavigationController(rootViewController: announcementViewController)
-//        let navDialogViewController = UINavigationController(rootViewController: dialogViewController)
+        let navSettingsViewController = UINavigationController(rootViewController: settingsViewController)
         let navProfileViewController = UINavigationController(rootViewController: profileViewController)
         
         
@@ -34,8 +34,8 @@ class TabBarController: UITabBarController {
             navHomeViewController,
 //                            navFavouriteController,
 //                            navAnnouncementViewController,
-//                            navDialogViewController,
-                            navProfileViewController
+                              navProfileViewController,
+                              navSettingsViewController
                            ]
         
         
@@ -49,9 +49,9 @@ class TabBarController: UITabBarController {
         tabBar.items?[1].image = UIImage(systemName: "person.circle.fill")
         tabBar.items?[1].title = "Account"
 //
-//        tabBar.items?[2].image = UIImage(systemName: "plus.rectangle.fill.on.rectangle.fill")
-//        tabBar.items?[2].title = "Объявления"
-//        
+        tabBar.items?[2].image = UIImage(systemName: "gearshape.circle.fill")
+        tabBar.items?[2].title = "Settings"
+//
 //        tabBar.items?[3].image = UIImage(systemName: "ellipsis.message.fill")
 //        tabBar.items?[3].title = "Диалоги"
 //        
