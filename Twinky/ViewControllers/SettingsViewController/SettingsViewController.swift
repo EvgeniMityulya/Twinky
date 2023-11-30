@@ -5,11 +5,16 @@
 //  Created by Admin on 29.11.23.
 //
 
-import Foundation
 import UIKit
 import SnapKit
 
-class SettingsViewController: UIViewController {
+protocol SettingsViewInput: AnyObject {
+    func configureUI()
+    func presentViewController(withViewController viewController: UIViewController)
+}
+
+final class SettingsViewController: UIViewController {
+    var output: SettingsViewOutput?
     
     private let settingsCellsContent = [
         "Language Preference",
@@ -31,7 +36,7 @@ class SettingsViewController: UIViewController {
         let tv = UITableView(frame: .zero, style: .insetGrouped)
         tv.delegate = self
         tv.dataSource = self
-        tv.register(ProfileSettingsTableCell.self, forCellReuseIdentifier: ProfileSettingsTableCell.identifier)
+        tv.register(SettingsProfileTableCell.self, forCellReuseIdentifier: SettingsProfileTableCell.identifier)
         tv.isScrollEnabled = false
         tv.separatorStyle = .none
         tv.backgroundColor = .clear
@@ -65,43 +70,21 @@ class SettingsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        view.backgroundColor = .backgroundViewColor
-        view.addSubview(titleLabel)
-        view.addSubview(tableProfileView)
-        view.addSubview(tableSettingsView)
-        
-        signOutButton.addTarget(self, action: #selector(signOutButtonTapped), for: .touchUpInside)
-        view.addSubview(signOutButton)
-        
-        titleLabel.snp.makeConstraints {
-            $0.left.equalTo(20)
-            $0.top.equalTo(60)
-        }
-        
-        tableProfileView.snp.makeConstraints {
-            $0.top.equalTo(titleLabel.snp.bottom).inset(20)
-            $0.left.right.equalToSuperview()
-            $0.bottom.equalTo(tableSettingsView).offset(100)
-        }
-        
-        tableSettingsView.snp.makeConstraints(){
-            $0.top.equalTo(100).offset(188)
-            $0.left.right.equalToSuperview()
-            $0.height.equalTo(330)
-        }
-        
-        signOutButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(120)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(56)
-            $0.width.equalTo(340)
-        }
+        output?.viewDidLoad()
     }
 }
 
 extension SettingsViewController: UITableViewDelegate {
 
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        if tableView.tag == 1 && indexPath.row == 0 {
+            let vc = SettingsLanguageViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         
         if tableView.tag == 0 {
@@ -136,7 +119,7 @@ extension SettingsViewController: UITableViewDataSource {
             return cell
         }
         else if tableView.tag == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileSettingsTableCell.identifier) as? ProfileSettingsTableCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsProfileTableCell.identifier) as? SettingsProfileTableCell else { return UITableViewCell() }
             
             cell.configure(withContent: ProfileSettingsCellContent())
             configureCellView(forCell: cell)
@@ -150,9 +133,52 @@ extension SettingsViewController: UITableViewDataSource {
         cell.accessoryType = .disclosureIndicator
         cell.layer.borderWidth = 0.3
         cell.layer.borderColor = UIColor.separatorColor.cgColor
+        cell.selectionStyle = .gray
     }
     
     @objc func signOutButtonTapped() {
             print("Sign Out!")
         }
+}
+
+extension SettingsViewController: SettingsViewInput {
+    func presentViewController(withViewController viewController: UIViewController) {
+        self.navigationController?.present(viewController, animated: true)
+    }
+    
+    
+    func configureUI() {
+        
+        view.backgroundColor = .backgroundViewColor
+        view.addSubview(titleLabel)
+        view.addSubview(tableProfileView)
+        view.addSubview(tableSettingsView)
+        
+        signOutButton.addTarget(self, action: #selector(signOutButtonTapped), for: .touchUpInside)
+        view.addSubview(signOutButton)
+        
+        titleLabel.snp.makeConstraints {
+            $0.left.equalTo(20)
+            $0.top.equalTo(60)
+        }
+        
+        tableProfileView.snp.makeConstraints {
+            $0.top.equalTo(titleLabel.snp.bottom).inset(20)
+            $0.left.right.equalToSuperview()
+            $0.bottom.equalTo(tableSettingsView).offset(100)
+        }
+        
+        tableSettingsView.snp.makeConstraints(){
+            $0.top.equalTo(100).offset(188)
+            $0.left.right.equalToSuperview()
+            $0.height.equalTo(330)
+        }
+        
+        signOutButton.snp.makeConstraints {
+            $0.bottom.equalToSuperview().inset(120)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(56)
+            $0.width.equalTo(340)
+        }
+    }
 }

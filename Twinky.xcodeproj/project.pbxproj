@@ -40,8 +40,11 @@
 		8407C9552B1716A100808DA4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8407C9542B1716A100808DA4 /* SnapKit */; };
 		8407C9572B1716A100808DA4 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8407C9562B1716A100808DA4 /* SnapKit-Dynamic */; };
 		8407C9592B172ABD00808DA4 /* SettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C9582B172ABD00808DA4 /* SettingsTableCell.swift */; };
-		8407C95B2B17395B00808DA4 /* ProfileSettingsTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C95A2B17395B00808DA4 /* ProfileSettingsTableCell.swift */; };
+		8407C95B2B17395B00808DA4 /* SettingsProfileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C95A2B17395B00808DA4 /* SettingsProfileTableCell.swift */; };
 		8407C95D2B17BA8900808DA4 /* ProfileSettingsCellContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C95C2B17BA8900808DA4 /* ProfileSettingsCellContent.swift */; };
+		84936BBB2B18DEB90028BDF7 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84936BBA2B18DEB90028BDF7 /* SettingsPresenter.swift */; };
+		84936BBD2B18E5090028BDF7 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84936BBC2B18E5090028BDF7 /* SettingsBuilder.swift */; };
+		84936BBF2B18F2A40028BDF7 /* SettingsLanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84936BBE2B18F2A40028BDF7 /* SettingsLanguageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,8 +81,11 @@
 		7B5AA27D2B17B47F0052237D /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
 		8407C9512B17139200808DA4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8407C9582B172ABD00808DA4 /* SettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableCell.swift; sourceTree = "<group>"; };
-		8407C95A2B17395B00808DA4 /* ProfileSettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsTableCell.swift; sourceTree = "<group>"; };
+		8407C95A2B17395B00808DA4 /* SettingsProfileTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileTableCell.swift; sourceTree = "<group>"; };
 		8407C95C2B17BA8900808DA4 /* ProfileSettingsCellContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileSettingsCellContent.swift; sourceTree = "<group>"; };
+		84936BBA2B18DEB90028BDF7 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
+		84936BBC2B18E5090028BDF7 /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
+		84936BBE2B18F2A40028BDF7 /* SettingsLanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsLanguageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,10 +238,15 @@
 		8407C9502B17136B00808DA4 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
+				84936BC22B18FB040028BDF7 /* LanguageViewController */,
+				84936BC12B18FAD60028BDF7 /* AppSettingsViewController */,
+				84936BC02B18FA780028BDF7 /* InformationViewController */,
 				8407C95E2B17C51500808DA4 /* Data */,
 				8407C9512B17139200808DA4 /* SettingsViewController.swift */,
 				8407C9582B172ABD00808DA4 /* SettingsTableCell.swift */,
-				8407C95A2B17395B00808DA4 /* ProfileSettingsTableCell.swift */,
+				8407C95A2B17395B00808DA4 /* SettingsProfileTableCell.swift */,
+				84936BBA2B18DEB90028BDF7 /* SettingsPresenter.swift */,
+				84936BBC2B18E5090028BDF7 /* SettingsBuilder.swift */,
 			);
 			path = SettingsViewController;
 			sourceTree = "<group>";
@@ -246,6 +257,28 @@
 				8407C95C2B17BA8900808DA4 /* ProfileSettingsCellContent.swift */,
 			);
 			path = Data;
+			sourceTree = "<group>";
+		};
+		84936BC02B18FA780028BDF7 /* InformationViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = InformationViewController;
+			sourceTree = "<group>";
+		};
+		84936BC12B18FAD60028BDF7 /* AppSettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AppSettingsViewController;
+			sourceTree = "<group>";
+		};
+		84936BC22B18FB040028BDF7 /* LanguageViewController */ = {
+			isa = PBXGroup;
+			children = (
+				84936BBE2B18F2A40028BDF7 /* SettingsLanguageViewController.swift */,
+			);
+			path = LanguageViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -344,18 +377,21 @@
 			files = (
 				7B5AA27E2B17B47F0052237D /* UIStackView + Extensions.swift in Sources */,
 				7B5AA27C2B17B4280052237D /* UIView + Extensions.swift in Sources */,
+				84936BBF2B18F2A40028BDF7 /* SettingsLanguageViewController.swift in Sources */,
 				7B5AA2772B167FD60052237D /* UserInfoView.swift in Sources */,
 				7B5AA20B2B15FBF80052237D /* HomeViewController.swift in Sources */,
 				8407C9522B17139200808DA4 /* SettingsViewController.swift in Sources */,
 				7B5AA21E2B15FDF20052237D /* TabBarController.swift in Sources */,
 				7B5AA2282B1607830052237D /* UIColor + Extensions.swift in Sources */,
 				8407C95D2B17BA8900808DA4 /* ProfileSettingsCellContent.swift in Sources */,
+				84936BBD2B18E5090028BDF7 /* SettingsBuilder.swift in Sources */,
 				8407C9592B172ABD00808DA4 /* SettingsTableCell.swift in Sources */,
 				7B5AA22A2B1609EE0052237D /* UIFont + Extensions.swift in Sources */,
 				7B5AA2202B1600AB0052237D /* ProfileViewController.swift in Sources */,
 				7B5AA2072B15FBF80052237D /* AppDelegate.swift in Sources */,
-				8407C95B2B17395B00808DA4 /* ProfileSettingsTableCell.swift in Sources */,
+				8407C95B2B17395B00808DA4 /* SettingsProfileTableCell.swift in Sources */,
 				7B5AA2092B15FBF80052237D /* SceneDelegate.swift in Sources */,
+				84936BBB2B18DEB90028BDF7 /* SettingsPresenter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

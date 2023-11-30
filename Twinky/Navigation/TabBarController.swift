@@ -19,7 +19,7 @@ class TabBarController: UITabBarController {
         let homeViewController = HomeViewController()
 //        let favouriteViewController = FavouriteViewController()
 //        let announcementViewController = AnnouncementViewController()
-        let settingsViewController = SettingsViewController()
+        let settingsViewController = SettingsBuilder.setupSettings()
         let profileViewController = ProfileViewController()
         
         // MARK: - Navigation

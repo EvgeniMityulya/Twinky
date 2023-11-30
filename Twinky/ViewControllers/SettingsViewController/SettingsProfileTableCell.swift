@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileSettingsTableCell: UITableViewCell {
+class SettingsProfileTableCell: UITableViewCell {
 
     static let identifier = "ProfileCell"
     
