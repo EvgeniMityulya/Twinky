@@ -8,12 +8,24 @@
 import UIKit
 import SnapKit
 
+// MARK: - ProfileViewController
+
 final class ProfileViewController: UIViewController {
+    // MARK: - Outlets
+    
     private lazy var nameLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Brad Pitt"
         lbl.textColor = .titleColor
         lbl.font = .sourceSans(ofSize: 35, style: .black)
+        return lbl
+    }()
+    
+    private lazy var filmCollectionLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Brad's Film Collection"
+        lbl.textColor = .titleColor
+        lbl.font = .sourceSans(ofSize: 20, style: .semiBold)
         return lbl
     }()
     
@@ -27,6 +39,32 @@ final class ProfileViewController: UIViewController {
         btn.setImage(settingsImageTapped, for: .highlighted)
         
         btn.addTarget(self, action: #selector(settingsButtonTouchUpInside), for: .touchUpInside)
+        return btn
+    }()
+    
+    private lazy var filmCollectionPrevButton: UIButton = {
+        let btn = UIButton()
+        let config = UIImage.SymbolConfiguration(pointSize: 14, weight: .black)
+        let settingsImage = UIImage(systemName: "chevron.backward", withConfiguration: config)?.withTintColor(.iconColor, renderingMode: .alwaysOriginal)
+        let settingsImageTapped = UIImage(systemName: "chevron.backward", withConfiguration: config)?.withTintColor(.iconTouched, renderingMode: .alwaysOriginal)
+        
+        btn.setImage(settingsImage, for: .normal)
+        btn.setImage(settingsImageTapped, for: .highlighted)
+        
+        btn.addTarget(self, action: #selector(filmCollectionPrevButtonTouchUpInside), for: .touchUpInside)
+        return btn
+    }()
+    
+    private lazy var filmCollectionNextButton: UIButton = {
+        let btn = UIButton()
+        let config = UIImage.SymbolConfiguration(pointSize: 14, weight: .black)
+        let settingsImage = UIImage(systemName: "chevron.forward", withConfiguration: config)?.withTintColor(.iconColor, renderingMode: .alwaysOriginal)
+        let settingsImageTapped = UIImage(systemName: "chevron.forward", withConfiguration: config)?.withTintColor(.iconTouched, renderingMode: .alwaysOriginal)
+        
+        btn.setImage(settingsImage, for: .normal)
+        btn.setImage(settingsImageTapped, for: .highlighted)
+        
+        btn.addTarget(self, action: #selector(filmCollectionNextButtonTouchUpInside), for: .touchUpInside)
         return btn
     }()
     
@@ -48,18 +86,34 @@ final class ProfileViewController: UIViewController {
         return stcv
     }()
     
+    private lazy var filmsCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        
+        let clv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        clv.delegate = self
+        clv.dataSource = self
+        clv.backgroundColor = .clear
+        return clv
+    }()
+    
     private var userFilmsView = UserInfoView()
     private var userContactsView = UserInfoView()
     private var userGenreView = UserInfoView()
     
+    // MARK: - Lifecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        filmsCollectionView.register(ImageCollectionViewCell.self, forCellWithReuseIdentifier: "ImageCollectionViewCell")
         configureNavigation()
         configureViewColors()
         configureConstraints()
         configureButtons()
         configureUserInfo()
     }
+    
+    // MARK: - Private Methods
     
     private func configureNavigation() {
         navigationController?.setNavigationBarHidden(true, animated: false)
@@ -91,7 +145,11 @@ final class ProfileViewController: UIViewController {
             nameLabel,
             settingsButton,
             userImageView,
-            userStackView
+            userStackView,
+            filmsCollectionView,
+            filmCollectionLabel,
+            filmCollectionPrevButton,
+            filmCollectionNextButton
         )
         
         userStackView.addArrangedSubview(
@@ -124,9 +182,65 @@ final class ProfileViewController: UIViewController {
             make.leading.equalTo(userImageView.snp.trailing).offset(10)
             make.bottom.equalTo(userImageView.snp.bottom)
         }
+        
+        filmsCollectionView.snp.makeConstraints { make in
+            make.bottom.equalTo(view.safeAreaLayoutGuide.snp.bottom).offset(-10)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
+            make.height.equalTo(120)
+        }
+        
+        filmCollectionNextButton.snp.makeConstraints { make in
+            make.centerY.equalTo(filmCollectionLabel.snp.centerY)
+            make.trailing.equalToSuperview().offset(-20)
+        }
+        
+        filmCollectionPrevButton.snp.makeConstraints { make in
+            make.centerY.equalTo(filmCollectionLabel.snp.centerY)
+            make.trailing.equalTo(filmCollectionNextButton.snp.leading).offset(-20)
+        }
+        
+        filmCollectionLabel.snp.makeConstraints { make in
+            make.bottom.equalTo(filmsCollectionView.snp.top).offset(-10)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalTo(filmCollectionPrevButton.snp.leading).offset(-10)
+        }
+        
+        
     }
+    
+    // MARK: - @objc Methods
     
     @objc private func settingsButtonTouchUpInside() {
         print("Go to settings button tapped")
+    }
+    
+    @objc private func filmCollectionPrevButtonTouchUpInside() {
+        print("Go to prev films")
+    }
+    
+    @objc private func filmCollectionNextButtonTouchUpInside() {
+        print("Go to next films")
+    }
+}
+
+// MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        3
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell else {
+            fatalError("Unable to dequeue a cell")
+        }
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let spacing: CGFloat = 10
+        let availableWidth = collectionView.bounds.width - 2 * spacing
+        let cellWidth = availableWidth / 3
+        return CGSize(width: cellWidth, height: collectionView.bounds.height)
     }
 }
