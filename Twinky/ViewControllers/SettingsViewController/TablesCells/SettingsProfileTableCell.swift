@@ -56,9 +56,9 @@ class SettingsProfileTableCell: UITableViewCell {
         }
     }
 
-    func configure(withContent content: ProfileSettingsCellContent) {
-        titleLabel.text = content.title
-        subtitleLabel.text = content.subtitle
-        userImage.image = content.image
+    func configure() {
+        titleLabel.text = SettingsViewsContent.title
+        subtitleLabel.text = SettingsViewsContent.subtitle
+        userImage.image = SettingsViewsContent.image
     }
 }

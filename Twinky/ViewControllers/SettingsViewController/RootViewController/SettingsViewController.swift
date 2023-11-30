@@ -16,13 +16,6 @@ protocol SettingsViewInput: AnyObject {
 final class SettingsViewController: UIViewController {
     var output: SettingsViewOutput?
     
-    private let settingsCellsContent = [
-        "Language Preference",
-        "Notification Preferences",
-        "App Settings",
-        "Help & Support"
-    ]
-    
     private let titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Settings"
@@ -49,7 +42,7 @@ final class SettingsViewController: UIViewController {
         let tv = UITableView(frame: .zero, style: .insetGrouped)
         tv.delegate = self
         tv.dataSource = self
-        tv.register(SettingsTableCell.self, forCellReuseIdentifier: SettingsTableCell.identifier)
+        tv.register(SettingsOptionsTableCell.self, forCellReuseIdentifier: SettingsOptionsTableCell.identifier)
         tv.isScrollEnabled = false
         tv.separatorStyle = .none
         tv.separatorColor = .gray
@@ -75,14 +68,15 @@ final class SettingsViewController: UIViewController {
 }
 
 extension SettingsViewController: UITableViewDelegate {
-
+    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        if tableView.tag == 1 && indexPath.row == 0 {
-            let vc = SettingsLanguageViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
-        }
+        guard let viewController = self.output?.getPresentedViewController(
+            forTag: tableView.tag,
+            forIndex: indexPath.row
+        ) else { return }
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -98,30 +92,30 @@ extension SettingsViewController: UITableViewDelegate {
 extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
+        
         if tableView.tag == 0 {
             return 1
         }
         else if tableView.tag == 1 {
-            return settingsCellsContent.count
+            return SettingsViewsContent.settingsTitles.count
         }
         
         return 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+        
         if tableView.tag == 1 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsTableCell.identifier) as? SettingsTableCell else { return UITableViewCell() }
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsOptionsTableCell.identifier) as? SettingsOptionsTableCell else { return UITableViewCell() }
             
-            cell.configure(withContent: settingsCellsContent[indexPath.row])
+            cell.configure(withContent: SettingsViewsContent.settingsTitles[indexPath.row])
             configureCellView(forCell: cell)
             return cell
         }
         else if tableView.tag == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsProfileTableCell.identifier) as? SettingsProfileTableCell else { return UITableViewCell() }
             
-            cell.configure(withContent: ProfileSettingsCellContent())
+            cell.configure()
             configureCellView(forCell: cell)
             return cell
         }
@@ -137,8 +131,8 @@ extension SettingsViewController: UITableViewDataSource {
     }
     
     @objc func signOutButtonTapped() {
-            print("Sign Out!")
-        }
+        print("Sign Out!")
+    }
 }
 
 extension SettingsViewController: SettingsViewInput {

@@ -1,19 +1,18 @@
 //
-//  TestViewController.swift
+//  AppSettingsViewController.swift
 //  Twinky
 //
 //  Created by Anton Polovoy on 30.11.23.
 //
 
 import UIKit
-import SnapKit
 
-class SettingsLanguageViewController: UIViewController {
+class AppSettingsViewController: UIViewController {
 
     private let label: UILabel = {
         let lbl = UILabel()
         lbl.textColor = .backgroundViewSecondary
-        lbl.text = "Language Preference"
+        lbl.text = "App Settings"
         lbl.font = .sourceSans(ofSize: 33, style: .italic)
         return lbl
     }()
@@ -26,4 +25,5 @@ class SettingsLanguageViewController: UIViewController {
             $0.center.equalToSuperview()
         }
     }
+
 }

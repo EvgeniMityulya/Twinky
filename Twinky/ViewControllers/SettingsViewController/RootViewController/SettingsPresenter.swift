@@ -28,12 +28,18 @@ final class SettingsPresenter: SettingsViewOutput {
         guard tag == 0 else {
             switch index {
             case 0:
-                return SettingsLanguageViewController()
+                return LanguageViewController()
+            case 1:
+                return NotificationsViewController()
+            case 2:
+                return AppSettingsViewController()
+            case 3:
+                return HelpViewController()
             default:
                 return UIViewController()
             }
         }
         
-        return UIViewController()
+        return InformationViewController()
     }
 }
