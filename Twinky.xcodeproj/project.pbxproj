@@ -36,6 +36,7 @@
 		7B5AA2772B167FD60052237D /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA2762B167FD60052237D /* UserInfoView.swift */; };
 		7B5AA27C2B17B4280052237D /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA27B2B17B4280052237D /* UIView + Extensions.swift */; };
 		7B5AA27E2B17B47F0052237D /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA27D2B17B47F0052237D /* UIStackView + Extensions.swift */; };
+		7B5AA2822B18DF300052237D /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA2812B18DF300052237D /* ImageCollectionViewCell.swift */; };
 		8407C9522B17139200808DA4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C9512B17139200808DA4 /* SettingsViewController.swift */; };
 		8407C9552B1716A100808DA4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8407C9542B1716A100808DA4 /* SnapKit */; };
 		8407C9572B1716A100808DA4 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8407C9562B1716A100808DA4 /* SnapKit-Dynamic */; };
@@ -79,6 +80,7 @@
 		7B5AA2762B167FD60052237D /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		7B5AA27B2B17B4280052237D /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		7B5AA27D2B17B47F0052237D /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
+		7B5AA2812B18DF300052237D /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		8407C9512B17139200808DA4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8407C9582B172ABD00808DA4 /* SettingsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableCell.swift; sourceTree = "<group>"; };
 		8407C95A2B17395B00808DA4 /* SettingsProfileTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileTableCell.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 			isa = PBXGroup;
 			children = (
 				7B5AA2762B167FD60052237D /* UserInfoView.swift */,
+				7B5AA2812B18DF300052237D /* ImageCollectionViewCell.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -382,6 +385,7 @@
 				7B5AA20B2B15FBF80052237D /* HomeViewController.swift in Sources */,
 				8407C9522B17139200808DA4 /* SettingsViewController.swift in Sources */,
 				7B5AA21E2B15FDF20052237D /* TabBarController.swift in Sources */,
+				7B5AA2822B18DF300052237D /* ImageCollectionViewCell.swift in Sources */,
 				7B5AA2282B1607830052237D /* UIColor + Extensions.swift in Sources */,
 				8407C95D2B17BA8900808DA4 /* ProfileSettingsCellContent.swift in Sources */,
 				84936BBD2B18E5090028BDF7 /* SettingsBuilder.swift in Sources */,

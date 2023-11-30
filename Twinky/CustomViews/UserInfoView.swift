@@ -8,7 +8,11 @@
 import UIKit
 import SnapKit
 
+// MARK: - UserInfoView
+
 class UserInfoView: UIView {
+    // MARK: - Outlets
+    
     private lazy var backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .cellColor
@@ -40,6 +44,8 @@ class UserInfoView: UIView {
         return lbl
     }()
     
+    // MARK: - Initialization
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureConstraints()
@@ -50,10 +56,14 @@ class UserInfoView: UIView {
         configureConstraints()
     }
     
+    // MARK: - Public Methods
+    
     func configureView(title: String, subtitle: String) {
         titleLabel.text = title
         subtitleLabel.text = subtitle
     }
+    
+    // MARK: - Private Methods
     
     private func configureConstraints() {
         addSubview(backgroundView)
@@ -68,9 +78,5 @@ class UserInfoView: UIView {
         stackView.snp.makeConstraints { make in
             make.edges.equalTo(backgroundView).inset(UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0))
         }
-        
-//        titleLabel.snp.makeConstraints { make in
-//            make.top.equalTo(10)
-//        }
     }
 }
