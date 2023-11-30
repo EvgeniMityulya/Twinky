@@ -11,7 +11,7 @@ import SnapKit
 final class ProfileViewController: UIViewController {
     private lazy var nameLabel: UILabel = {
         let lbl = UILabel()
-        lbl.text = "John Doe"
+        lbl.text = "Brad Pitt"
         lbl.textColor = .titleColor
         lbl.font = .sourceSans(ofSize: 35, style: .black)
         return lbl
@@ -33,7 +33,7 @@ final class ProfileViewController: UIViewController {
     private lazy var userImageView: UIImageView = {
         let imgv = UIImageView()
         imgv.clipsToBounds = true
-        imgv.image = UIImage(named: "userPhoto")
+        imgv.image = UIImage(named: "userProfileImage")
         imgv.contentMode = .scaleAspectFill
         imgv.layer.cornerRadius = 20
         return imgv

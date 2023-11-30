@@ -27,4 +27,8 @@ extension UIColor {
     static var cellColor: UIColor {
         return UIColor(named: "cell") ?? .black
     }
+    
+    static var separatorColor: UIColor {
+        return UIColor(named: "separator") ?? .black
+    }
 }
