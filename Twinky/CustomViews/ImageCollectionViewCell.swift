@@ -19,6 +19,12 @@ class ImageCollectionViewCell: UICollectionViewCell {
         return imgv
     }()
     
+    private lazy var indexLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "123"
+        return lbl
+    }()
+    
     // MARK: - Initialization
     
     override init(frame: CGRect) {
@@ -33,16 +39,26 @@ class ImageCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Public Methods
     
-    func configure(with image: UIImage?) {
+    func setImage(with image: UIImage?) {
         imageView.image = image
+    }
+    
+    func setText(with text: String) {
+        indexLabel.text = text
     }
     
     // MARK: - Private Methods
     
     private func setupUI() {
         addSubview(imageView)
+        addSubview(indexLabel)
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+        
+        indexLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(imageView.snp.centerY)
+            make.centerX.equalTo(imageView.snp.centerX)
         }
     }
 }

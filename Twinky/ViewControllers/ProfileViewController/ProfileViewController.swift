@@ -12,7 +12,8 @@ import SnapKit
 
 final class ProfileViewController: UIViewController {
     // MARK: - Outlets
-    
+    private var currentIndex = 0
+    private let itemsCount = 7
     private lazy var nameLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Brad Pitt"
@@ -94,6 +95,7 @@ final class ProfileViewController: UIViewController {
         clv.delegate = self
         clv.dataSource = self
         clv.backgroundColor = .clear
+        clv.isPagingEnabled = true
         return clv
     }()
     
@@ -209,6 +211,7 @@ final class ProfileViewController: UIViewController {
         
     }
     
+    
     // MARK: - @objc Methods
     
     @objc private func settingsButtonTouchUpInside() {
@@ -216,24 +219,52 @@ final class ProfileViewController: UIViewController {
     }
     
     @objc private func filmCollectionPrevButtonTouchUpInside() {
-        print("Go to prev films")
+        let itemsPerPage = 3
+        
+        guard currentIndex - itemsPerPage >= 0 else {
+            return
+        }
+        
+        currentIndex -= itemsPerPage
+        let prevIndexPath = IndexPath(item: currentIndex, section: 0)
+        if let attributes = filmsCollectionView.layoutAttributesForItem(at: prevIndexPath) {
+            let cellRect = attributes.frame
+            let offsetPoint = CGPoint(x: cellRect.origin.x, y: cellRect.origin.y)
+            filmsCollectionView.setContentOffset(offsetPoint, animated: true)
+        }
+        print(currentIndex)
     }
     
     @objc private func filmCollectionNextButtonTouchUpInside() {
-        print("Go to next films")
+        let itemsPerPage = 3
+        
+        guard currentIndex + itemsPerPage < itemsCount else {
+            return
+        }
+        
+        currentIndex += itemsPerPage
+        let nextIndexPath = IndexPath(item: currentIndex, section: 0)
+        
+        if let attributes = filmsCollectionView.layoutAttributesForItem(at: nextIndexPath) {
+            let cellRect = attributes.frame
+            let offsetPoint = CGPoint(x: cellRect.origin.x, y: cellRect.origin.y)
+            filmsCollectionView.setContentOffset(offsetPoint, animated: true)
+        }
     }
 }
+
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        3
+        itemsCount
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCollectionViewCell", for: indexPath) as? ImageCollectionViewCell else {
             fatalError("Unable to dequeue a cell")
         }
+        cell.setText(with: "\(indexPath.row)")
         return cell
     }
     
@@ -243,4 +274,9 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         let cellWidth = availableWidth / 3
         return CGSize(width: cellWidth, height: collectionView.bounds.height)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return (currentIndex == 1) ? 100 : 0
+    }
 }
+
