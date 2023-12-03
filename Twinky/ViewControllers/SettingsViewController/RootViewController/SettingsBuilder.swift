@@ -6,10 +6,9 @@
 //
 
 import Foundation
-import UIKit
 
 enum SettingsBuilder {
-    static func setupSettings() -> UIViewController {
+    static func setupSettings() -> SettingsViewController {
         let viewController = SettingsViewController()
         viewController.output = SettingsPresenter(input: viewController)
         return viewController

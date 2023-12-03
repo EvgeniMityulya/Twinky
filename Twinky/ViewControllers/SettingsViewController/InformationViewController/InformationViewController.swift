@@ -25,5 +25,13 @@ class InformationViewController: UIViewController {
             $0.center.equalToSuperview()
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: false)
+    }
 
 }

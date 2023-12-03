@@ -36,6 +36,9 @@
 		7B5AA27C2B17B4280052237D /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA27B2B17B4280052237D /* UIView + Extensions.swift */; };
 		7B5AA27E2B17B47F0052237D /* UIStackView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA27D2B17B47F0052237D /* UIStackView + Extensions.swift */; };
 		7B5AA2822B18DF300052237D /* ImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B5AA2812B18DF300052237D /* ImageCollectionViewCell.swift */; };
+		7BB651CA2B1CDB3C003DB863 /* Icons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB651C92B1CDB3C003DB863 /* Icons.swift */; };
+		7BB651CD2B1CE0F0003DB863 /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB651CC2B1CE0F0003DB863 /* ProfileBuilder.swift */; };
+		7BB651CF2B1CE1A6003DB863 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB651CE2B1CE1A6003DB863 /* ProfilePresenter.swift */; };
 		8407C9522B17139200808DA4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C9512B17139200808DA4 /* SettingsViewController.swift */; };
 		8407C9552B1716A100808DA4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8407C9542B1716A100808DA4 /* SnapKit */; };
 		8407C9572B1716A100808DA4 /* SnapKit-Dynamic in Frameworks */ = {isa = PBXBuildFile; productRef = 8407C9562B1716A100808DA4 /* SnapKit-Dynamic */; };
@@ -83,6 +86,9 @@
 		7B5AA27B2B17B4280052237D /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
 		7B5AA27D2B17B47F0052237D /* UIStackView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView + Extensions.swift"; sourceTree = "<group>"; };
 		7B5AA2812B18DF300052237D /* ImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCollectionViewCell.swift; sourceTree = "<group>"; };
+		7BB651C92B1CDB3C003DB863 /* Icons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Icons.swift; sourceTree = "<group>"; };
+		7BB651CC2B1CE0F0003DB863 /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
+		7BB651CE2B1CE1A6003DB863 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
 		8407C9512B17139200808DA4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		8407C9582B172ABD00808DA4 /* SettingsOptionsTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOptionsTableCell.swift; sourceTree = "<group>"; };
 		8407C95A2B17395B00808DA4 /* SettingsProfileTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileTableCell.swift; sourceTree = "<group>"; };
@@ -131,7 +137,6 @@
 				7B5AA2782B17AB210052237D /* Enums */,
 				7B5AA2262B1607690052237D /* Extensions */,
 				7B5AA2232B1605830052237D /* Models */,
-				7B5AA2752B167F910052237D /* CustomViews */,
 				7B5AA21C2B15FD8F0052237D /* Navigation */,
 				7B5AA21B2B15FD490052237D /* ViewControllers */,
 				7B5AA21A2B15FD340052237D /* Resources */,
@@ -173,7 +178,8 @@
 		7B5AA2212B1600D80052237D /* ProfileViewController */ = {
 			isa = PBXGroup;
 			children = (
-				7B5AA21F2B1600AB0052237D /* ProfileViewController.swift */,
+				7B5AA2752B167F910052237D /* CustomViews */,
+				7BB651CB2B1CE0C3003DB863 /* RootViewController */,
 			);
 			path = ProfileViewController;
 			sourceTree = "<group>";
@@ -189,6 +195,7 @@
 		7B5AA2232B1605830052237D /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				7BB651C92B1CDB3C003DB863 /* Icons.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -241,6 +248,16 @@
 			children = (
 			);
 			path = Enums;
+			sourceTree = "<group>";
+		};
+		7BB651CB2B1CE0C3003DB863 /* RootViewController */ = {
+			isa = PBXGroup;
+			children = (
+				7B5AA21F2B1600AB0052237D /* ProfileViewController.swift */,
+				7BB651CE2B1CE1A6003DB863 /* ProfilePresenter.swift */,
+				7BB651CC2B1CE0F0003DB863 /* ProfileBuilder.swift */,
+			);
+			path = RootViewController;
 			sourceTree = "<group>";
 		};
 		8407C9502B17136B00808DA4 /* SettingsViewController */ = {
@@ -425,6 +442,7 @@
 				7B5AA2772B167FD60052237D /* UserInfoView.swift in Sources */,
 				7B5AA20B2B15FBF80052237D /* HomeViewController.swift in Sources */,
 				8407C9522B17139200808DA4 /* SettingsViewController.swift in Sources */,
+				7BB651CD2B1CE0F0003DB863 /* ProfileBuilder.swift in Sources */,
 				7B5AA21E2B15FDF20052237D /* TabBarController.swift in Sources */,
 				84936BC72B1919F30028BDF7 /* AppSettingsViewController.swift in Sources */,
 				7B5AA2822B18DF300052237D /* ImageCollectionViewCell.swift in Sources */,
@@ -435,11 +453,13 @@
 				84936BC52B1919DF0028BDF7 /* HelpViewController.swift in Sources */,
 				7B5AA22A2B1609EE0052237D /* UIFont + Extensions.swift in Sources */,
 				7B5AA2202B1600AB0052237D /* ProfileViewController.swift in Sources */,
+				7BB651CF2B1CE1A6003DB863 /* ProfilePresenter.swift in Sources */,
 				7B5AA2072B15FBF80052237D /* AppDelegate.swift in Sources */,
 				8407C95B2B17395B00808DA4 /* SettingsProfileTableCell.swift in Sources */,
 				84936BCC2B191A5A0028BDF7 /* NotificationsViewController.swift in Sources */,
 				7B5AA2092B15FBF80052237D /* SceneDelegate.swift in Sources */,
 				84936BBB2B18DEB90028BDF7 /* SettingsPresenter.swift in Sources */,
+				7BB651CA2B1CDB3C003DB863 /* Icons.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

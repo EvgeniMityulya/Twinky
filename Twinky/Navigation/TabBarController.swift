@@ -17,46 +17,34 @@ class TabBarController: UITabBarController {
     private func configure() {
         // MARK: - View Controllers
         let homeViewController = HomeViewController()
-//        let favouriteViewController = FavouriteViewController()
-//        let announcementViewController = AnnouncementViewController()
         let settingsViewController = SettingsBuilder.setupSettings()
-        let profileViewController = ProfileViewController()
+        let profileViewController = ProfileBuilder.setupProfile()
         
         // MARK: - Navigation
         let navHomeViewController = UINavigationController(rootViewController: homeViewController)
-//        let navFavouriteController = UINavigationController(rootViewController: favouriteViewController)
-//        let navAnnouncementViewController = UINavigationController(rootViewController: announcementViewController)
         let navSettingsViewController = UINavigationController(rootViewController: settingsViewController)
         let navProfileViewController = UINavigationController(rootViewController: profileViewController)
         
         
         self.viewControllers = [
             navHomeViewController,
-//                            navFavouriteController,
-//                            navAnnouncementViewController,
-                              navProfileViewController,
-                              navSettingsViewController
-                           ]
+            navProfileViewController,
+            navSettingsViewController
+        ]
         
         
         // MARK: - Configure UI
         tabBar.backgroundColor = UIColor(named: "tabBarColor")
         tabBar.barTintColor = .white
         
-        tabBar.items?[0].image = UIImage(systemName: "house.circle.fill")
+        tabBar.items?[0].image = UIImage(systemName: Icons.houseFill)
         tabBar.items?[0].title = "Home"
-//
-        tabBar.items?[1].image = UIImage(systemName: "person.circle.fill")
+        //
+        tabBar.items?[1].image = UIImage(systemName: Icons.personFill)
         tabBar.items?[1].title = "Account"
-//
-        tabBar.items?[2].image = UIImage(systemName: "gearshape.circle.fill")
+        //
+        tabBar.items?[2].image = UIImage(systemName: Icons.gearshapeFill)
         tabBar.items?[2].title = "Settings"
-//
-//        tabBar.items?[3].image = UIImage(systemName: "ellipsis.message.fill")
-//        tabBar.items?[3].title = "Диалоги"
-//        
-//        tabBar.items?[4].image = UIImage(systemName: "line.3.horizontal")
-//        tabBar.items?[4].title = "Прочее"
     }
 }
 

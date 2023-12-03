@@ -29,6 +29,6 @@ extension UIColor {
     }
     
     static var separatorColor: UIColor {
-        return UIColor(named: "separator") ?? .black
+        return UIColor(named: "separate") ?? .black
     }
 }
