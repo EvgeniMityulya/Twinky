@@ -221,7 +221,7 @@ extension ProfileViewController: ProfileViewInput {
         )
         
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(20)
+            make.top.equalTo(60)
             make.leading.equalTo(20)
             make.trailing.equalTo(settingsButton.snp.leading).offset(-10)
         }

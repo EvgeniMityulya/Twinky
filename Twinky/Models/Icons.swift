@@ -14,6 +14,7 @@ struct Icons {
     
     static let houseFill = "house.circle.fill"
     static let personFill = "person.circle.fill"
-    
     static let user = "userProfileImage"
+    
+    static let list = "list.bullet.circle.fill"
 }

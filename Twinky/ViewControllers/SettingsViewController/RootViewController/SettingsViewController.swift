@@ -19,7 +19,7 @@ final class SettingsViewController: UIViewController {
     private let titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Settings"
-        lbl.font = UIFont.sourceSans(ofSize: 32, style: .bold)
+        lbl.font = UIFont.sourceSans(ofSize: 35, style: .bold)
         lbl.textColor = .titleColor
         return lbl
     }()
@@ -55,6 +55,9 @@ final class SettingsViewController: UIViewController {
         let btn = UIButton(type: .system)
         btn.backgroundColor = .backgroundViewSecondary
         btn.layer.cornerRadius = 24
+        btn.layer.shadowRadius = 5
+        btn.layer.shadowOpacity = 1
+        btn.layer.shadowColor = UIColor(named: "backgroundViewSecondary")?.cgColor
         btn.titleLabel?.font = UIFont.sourceSans(ofSize: 16, style: .bold)
         btn.setTitle("Sign Out", for: .normal)
         btn.setTitleColor(.backgroundView, for: .normal)
@@ -64,6 +67,10 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewDidLoad()
+    }
+    
+    @objc private func signOutButtonTouchUpInside() {
+        print("Sign Out!")
     }
 }
 
@@ -129,10 +136,6 @@ extension SettingsViewController: UITableViewDataSource {
         cell.layer.borderColor = UIColor.separatorColor.cgColor
         cell.selectionStyle = .gray
     }
-    
-    @objc func signOutButtonTapped() {
-        print("Sign Out!")
-    }
 }
 
 extension SettingsViewController: SettingsViewInput {
@@ -147,8 +150,6 @@ extension SettingsViewController: SettingsViewInput {
         view.addSubview(titleLabel)
         view.addSubview(tableProfileView)
         view.addSubview(tableSettingsView)
-        
-        signOutButton.addTarget(self, action: #selector(signOutButtonTapped), for: .touchUpInside)
         view.addSubview(signOutButton)
         
         titleLabel.snp.makeConstraints {
@@ -174,5 +175,7 @@ extension SettingsViewController: SettingsViewInput {
             $0.height.equalTo(56)
             $0.width.equalTo(340)
         }
+        
+        signOutButton.addTarget(self, action: #selector(signOutButtonTouchUpInside), for: .touchUpInside)
     }
 }
