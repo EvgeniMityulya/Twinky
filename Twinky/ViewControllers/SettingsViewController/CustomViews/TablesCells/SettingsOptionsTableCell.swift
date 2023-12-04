@@ -31,4 +31,9 @@ class SettingsOptionsTableCell: UITableViewCell {
     func configure(withContent content: String) {
         settingsOptionLabel.text = content
     }
+    
+    func configureIfSignOut(withContent content: String) {
+        settingsOptionLabel.text = content
+        settingsOptionLabel.textColor = .systemRed
+    }
 }

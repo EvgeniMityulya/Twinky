@@ -19,8 +19,7 @@ class GenreCell: UICollectionViewCell {
         
         lbl.minimumScaleFactor = 0.4
         lbl.adjustsFontSizeToFitWidth = true
-        lbl.lineBreakMode = .byWordWrapping
-        lbl.numberOfLines = 2
+        lbl.textAlignment = .center
         return lbl
     }()
     
@@ -33,6 +32,8 @@ class GenreCell: UICollectionViewCell {
         genreLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.bottom.equalToSuperview().inset(10)
+            $0.left.equalToSuperview().offset(5)
+            $0.right.equalToSuperview().offset(-5)
         }
     }
     

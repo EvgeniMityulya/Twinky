@@ -51,26 +51,9 @@ final class SettingsViewController: UIViewController {
         return tv
     }()
     
-    private let signOutButton: UIButton = {
-        let btn = UIButton(type: .system)
-        btn.backgroundColor = .backgroundViewSecondary
-        btn.layer.cornerRadius = 24
-        btn.layer.shadowRadius = 5
-        btn.layer.shadowOpacity = 1
-        btn.layer.shadowColor = UIColor(named: "backgroundViewSecondary")?.cgColor
-        btn.titleLabel?.font = UIFont.sourceSans(ofSize: 16, style: .bold)
-        btn.setTitle("Sign Out", for: .normal)
-        btn.setTitleColor(.backgroundView, for: .normal)
-        return btn
-    }()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         output?.viewDidLoad()
-    }
-    
-    @objc private func signOutButtonTouchUpInside() {
-        print("Sign Out!")
     }
 }
 
@@ -78,6 +61,11 @@ extension SettingsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        guard tableView.tag != 0 && indexPath.row != SettingsViewsContent.settingsTitles.count - 1 else {
+            self.output?.signOut()
+            return
+        }
         
         guard let viewController = self.output?.getPresentedViewController(
             forTag: tableView.tag,
@@ -112,17 +100,22 @@ extension SettingsViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        if tableView.tag == 1 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsOptionsTableCell.identifier) as? SettingsOptionsTableCell else { return UITableViewCell() }
-            
-            cell.configure(withContent: SettingsViewsContent.settingsTitles[indexPath.row])
-            configureCellView(forCell: cell)
-            return cell
-        }
-        else if tableView.tag == 0 {
+        if tableView.tag == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsProfileTableCell.identifier) as? SettingsProfileTableCell else { return UITableViewCell() }
             
             cell.configure()
+            configureCellView(forCell: cell)
+            return cell
+        }
+        else if tableView.tag == 1 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: SettingsOptionsTableCell.identifier) as? SettingsOptionsTableCell else { return UITableViewCell() }
+            
+            guard indexPath.row != SettingsViewsContent.settingsTitles.count - 1 else {
+                configireSignOutCell(withCell: cell, withContent: SettingsViewsContent.settingsTitles[indexPath.row])
+                return cell
+            }
+            
+            cell.configure(withContent: SettingsViewsContent.settingsTitles[indexPath.row])
             configureCellView(forCell: cell)
             return cell
         }
@@ -136,6 +129,15 @@ extension SettingsViewController: UITableViewDataSource {
         cell.layer.borderColor = UIColor.separatorColor.cgColor
         cell.selectionStyle = .gray
     }
+    
+    func configireSignOutCell(withCell cell: SettingsOptionsTableCell, withContent text: String) {
+        cell.accessoryType = .none
+        cell.layer.borderWidth = 0.3
+        cell.layer.borderColor = UIColor.separatorColor.cgColor
+        cell.selectionStyle = .gray
+        
+        cell.configureIfSignOut(withContent: text)
+    }
 }
 
 extension SettingsViewController: SettingsViewInput {
@@ -143,14 +145,12 @@ extension SettingsViewController: SettingsViewInput {
         self.navigationController?.present(viewController, animated: true)
     }
     
-    
     func configureUI() {
         
         view.backgroundColor = .backgroundViewColor
         view.addSubview(titleLabel)
         view.addSubview(tableProfileView)
         view.addSubview(tableSettingsView)
-        view.addSubview(signOutButton)
         
         titleLabel.snp.makeConstraints {
             $0.left.equalTo(20)
@@ -166,16 +166,7 @@ extension SettingsViewController: SettingsViewInput {
         tableSettingsView.snp.makeConstraints(){
             $0.top.equalTo(100).offset(188)
             $0.left.right.equalToSuperview()
-            $0.height.equalTo(330)
+            $0.bottom.equalToSuperview().offset(80)
         }
-        
-        signOutButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().inset(120)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(56)
-            $0.width.equalTo(340)
-        }
-        
-        signOutButton.addTarget(self, action: #selector(signOutButtonTouchUpInside), for: .touchUpInside)
     }
 }

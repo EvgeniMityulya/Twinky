@@ -15,6 +15,7 @@ struct SettingsViewsContent {
         "Language Preference",
         "Notification Preferences",
         "App Settings",
-        "Help & Support"
+        "Help & Support",
+        "Sign Out"
     ]
 }
