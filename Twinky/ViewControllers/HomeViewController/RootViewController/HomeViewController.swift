@@ -17,7 +17,6 @@ class HomeViewController: UIViewController {
     
     private let movieGenres = ["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Sci-Fi", "Thriller", "Animation", "Documentary", "Crime", "Family", "History", "Music", "Sport", "War", "Biography", "Western", "Musical", "Romantic Comedy", "Superhero", "Spy", "Supernatural"]
 
-    
     private lazy var titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Discover Movies"
@@ -104,7 +103,7 @@ extension HomeViewController: HomeViewInput {
             $0.right.equalTo(-20)
             $0.centerY.equalTo(titleLabel)
         }
-        //        listButton.addTarget(self, action: #selector(listButtonTouchUpInside), for: .touchUpInside)
+//                listButton.addTarget(self, action: #selector(listButtonTouchUpInside), for: .touchUpInside)
         
         searchTextField.snp.makeConstraints {
             $0.right.equalTo(-20)

@@ -16,11 +16,13 @@ class GenreCell: UICollectionViewCell {
         
         lbl.font = .sourceSans(ofSize: 18, style: .bold)
         lbl.textColor = .titleColor
+        lbl.textAlignment = .center
         
-        lbl.minimumScaleFactor = 0.4
+        lbl.minimumScaleFactor = 0.8
         lbl.adjustsFontSizeToFitWidth = true
         lbl.lineBreakMode = .byWordWrapping
-        lbl.numberOfLines = 2
+        lbl.numberOfLines = 1
+        
         return lbl
     }()
     
@@ -31,8 +33,9 @@ class GenreCell: UICollectionViewCell {
         addSubview(genreLabel)
         
         genreLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(10)
+            $0.leading.equalToSuperview().offset(5)
+            $0.trailing.equalToSuperview().offset(-5)
+            $0.bottom.equalToSuperview().inset(15)
         }
     }
     

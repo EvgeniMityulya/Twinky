@@ -45,6 +45,12 @@ final class ProfileViewController: UIViewController {
         return lbl
     }()
     
+    private lazy var mainContentView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .black
+        return view
+    }()
+    
     private lazy var settingsButton: UIButton = {
         let btn = UIButton()
         let config = UIImage.SymbolConfiguration(pointSize: 35)
@@ -115,6 +121,8 @@ final class ProfileViewController: UIViewController {
         return clv
     }()
     
+    
+    
     private var userFilmsView = UserInfoView()
     private var userContactsView = UserInfoView()
     private var userGenreView = UserInfoView()
@@ -141,7 +149,6 @@ final class ProfileViewController: UIViewController {
         output?.filmCollectionNextButtonTapped(index: &currentIndex, items: itemsCount)
     }
 }
-
 
 // MARK: - UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 
@@ -208,6 +215,7 @@ extension ProfileViewController: ProfileViewInput {
             settingsButton,
             userImageView,
             userStackView,
+            mainContentView,
             filmsCollectionView,
             filmCollectionLabel,
             filmCollectionPrevButton,
@@ -229,6 +237,13 @@ extension ProfileViewController: ProfileViewInput {
         settingsButton.snp.makeConstraints { make in
             make.centerY.equalTo(nameLabel.snp.centerY)
             make.trailing.equalTo(-20)
+        }
+        
+        mainContentView.snp.makeConstraints { make in
+            make.top.equalTo(userImageView.snp.bottom).offset(10)
+            make.bottom.equalTo(filmCollectionLabel.snp.top).offset(-10)
+            make.leading.equalToSuperview().offset(20)
+            make.trailing.equalToSuperview().offset(-20)
         }
         
         userImageView.snp.makeConstraints { make in
