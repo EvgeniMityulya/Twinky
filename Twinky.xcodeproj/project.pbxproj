@@ -45,9 +45,11 @@
 		8407C95B2B17395B00808DA4 /* SettingsProfileTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C95A2B17395B00808DA4 /* SettingsProfileTableCell.swift */; };
 		8407C95D2B17BA8900808DA4 /* SettingsViewsContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8407C95C2B17BA8900808DA4 /* SettingsViewsContent.swift */; };
 		84598F662B1D09CE0062A64E /* HomePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84598F652B1D09CE0062A64E /* HomePresenter.swift */; };
-		84598F6A2B1D0AD10062A64E /* Builders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84598F692B1D0AD10062A64E /* Builders.swift */; };
 		84598F6D2B1D218C0062A64E /* TextFieldWithPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84598F6C2B1D218C0062A64E /* TextFieldWithPadding.swift */; };
 		84598F712B1D2D5A0062A64E /* GenreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84598F702B1D2D5A0062A64E /* GenreCell.swift */; };
+		846C28002B1DCF530071C171 /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C27FF2B1DCF530071C171 /* HomeBuilder.swift */; };
+		846C28022B1DCFC30071C171 /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C28012B1DCFC30071C171 /* ProfileBuilder.swift */; };
+		846C28042B1DCFF90071C171 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C28032B1DCFF90071C171 /* SettingsBuilder.swift */; };
 		84936BBB2B18DEB90028BDF7 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84936BBA2B18DEB90028BDF7 /* SettingsPresenter.swift */; };
 		84936BBF2B18F2A40028BDF7 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84936BBE2B18F2A40028BDF7 /* LanguageViewController.swift */; };
 		84936BC52B1919DF0028BDF7 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84936BC42B1919DF0028BDF7 /* HelpViewController.swift */; };
@@ -95,9 +97,11 @@
 		8407C95A2B17395B00808DA4 /* SettingsProfileTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsProfileTableCell.swift; sourceTree = "<group>"; };
 		8407C95C2B17BA8900808DA4 /* SettingsViewsContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewsContent.swift; sourceTree = "<group>"; };
 		84598F652B1D09CE0062A64E /* HomePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePresenter.swift; sourceTree = "<group>"; };
-		84598F692B1D0AD10062A64E /* Builders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Builders.swift; path = Twinky/ViewControllers/HomeViewController/RootViewController/Builders.swift; sourceTree = SOURCE_ROOT; };
 		84598F6C2B1D218C0062A64E /* TextFieldWithPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldWithPadding.swift; sourceTree = "<group>"; };
 		84598F702B1D2D5A0062A64E /* GenreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenreCell.swift; sourceTree = "<group>"; };
+		846C27FF2B1DCF530071C171 /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
+		846C28012B1DCFC30071C171 /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
+		846C28032B1DCFF90071C171 /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
 		84936BBA2B18DEB90028BDF7 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		84936BBE2B18F2A40028BDF7 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		84936BC42B1919DF0028BDF7 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -251,7 +255,6 @@
 		7B5AA2782B17AB210052237D /* Enums */ = {
 			isa = PBXGroup;
 			children = (
-				84598F692B1D0AD10062A64E /* Builders.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			children = (
 				7B5AA21F2B1600AB0052237D /* ProfileViewController.swift */,
 				7BB651CE2B1CE1A6003DB863 /* ProfilePresenter.swift */,
+				846C28012B1DCFC30071C171 /* ProfileBuilder.swift */,
 			);
 			path = RootViewController;
 			sourceTree = "<group>";
@@ -293,6 +297,7 @@
 			children = (
 				7B5AA20A2B15FBF80052237D /* HomeViewController.swift */,
 				84598F652B1D09CE0062A64E /* HomePresenter.swift */,
+				846C27FF2B1DCF530071C171 /* HomeBuilder.swift */,
 			);
 			path = RootViewController;
 			sourceTree = "<group>";
@@ -376,6 +381,7 @@
 			children = (
 				8407C9512B17139200808DA4 /* SettingsViewController.swift */,
 				84936BBA2B18DEB90028BDF7 /* SettingsPresenter.swift */,
+				846C28032B1DCFF90071C171 /* SettingsBuilder.swift */,
 			);
 			path = RootViewController;
 			sourceTree = "<group>";
@@ -473,6 +479,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846C28022B1DCFC30071C171 /* ProfileBuilder.swift in Sources */,
 				7B5AA27E2B17B47F0052237D /* UIStackView + Extensions.swift in Sources */,
 				7B5AA27C2B17B4280052237D /* UIView + Extensions.swift in Sources */,
 				84936BC92B191A0C0028BDF7 /* InformationViewController.swift in Sources */,
@@ -486,7 +493,6 @@
 				7B5AA2822B18DF300052237D /* ImageCollectionViewCell.swift in Sources */,
 				7B5AA2282B1607830052237D /* UIColor + Extensions.swift in Sources */,
 				8407C95D2B17BA8900808DA4 /* SettingsViewsContent.swift in Sources */,
-				84598F6A2B1D0AD10062A64E /* Builders.swift in Sources */,
 				84598F712B1D2D5A0062A64E /* GenreCell.swift in Sources */,
 				8407C9592B172ABD00808DA4 /* SettingsOptionsTableCell.swift in Sources */,
 				84936BC52B1919DF0028BDF7 /* HelpViewController.swift in Sources */,
@@ -497,6 +503,8 @@
 				7B5AA2072B15FBF80052237D /* AppDelegate.swift in Sources */,
 				8407C95B2B17395B00808DA4 /* SettingsProfileTableCell.swift in Sources */,
 				84936BCC2B191A5A0028BDF7 /* NotificationsViewController.swift in Sources */,
+				846C28002B1DCF530071C171 /* HomeBuilder.swift in Sources */,
+				846C28042B1DCFF90071C171 /* SettingsBuilder.swift in Sources */,
 				7B5AA2092B15FBF80052237D /* SceneDelegate.swift in Sources */,
 				84936BBB2B18DEB90028BDF7 /* SettingsPresenter.swift in Sources */,
 				7BB651CA2B1CDB3C003DB863 /* Icons.swift in Sources */,

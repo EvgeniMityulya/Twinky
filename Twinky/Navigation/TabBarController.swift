@@ -16,9 +16,9 @@ class TabBarController: UITabBarController {
     
     private func configure() {
         // MARK: - View Controllers
-        let homeViewController = Builders.setupHome()
-        let settingsViewController = Builders.setupSettings()
-        let profileViewController = Builders.setupProfile()
+        let homeViewController = HomeBuilder.setupModule()
+        let settingsViewController = SettingsBuilder.setupModule()
+        let profileViewController = ProfileBuilder.setupModule()
         
         // MARK: - Navigation
         let navHomeViewController = UINavigationController(rootViewController: homeViewController)

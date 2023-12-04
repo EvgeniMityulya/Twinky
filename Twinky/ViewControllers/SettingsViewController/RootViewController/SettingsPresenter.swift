@@ -10,6 +10,7 @@ import UIKit
 protocol SettingsViewOutput {
     func viewDidLoad() 
     func getPresentedViewController(forTag tag: Int, forIndex index: Int) -> UIViewController
+    func signOut()
 }
 
 final class SettingsPresenter: SettingsViewOutput {
@@ -41,5 +42,9 @@ final class SettingsPresenter: SettingsViewOutput {
         }
         
         return InformationViewController()
+    }
+    
+    func signOut() {
+        print("Signed Out!")
     }
 }
