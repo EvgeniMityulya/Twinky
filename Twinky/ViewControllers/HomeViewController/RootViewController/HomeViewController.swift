@@ -45,6 +45,16 @@ class HomeViewController: UIViewController {
         tf.backgroundColor = .systemGray4
         tf.clipsToBounds = true
         
+        
+
+        tf.rightView = TextFieldIconView.create(
+            size: 40,
+            image: "magnifyingglass",
+            color: .titleColor,
+            contentMode: .left
+        )
+        tf.rightViewMode = .always
+
         tf.placeholder = "Search movies"
         tf.font = .sourceSans(ofSize: 18, style: .regular)
         tf.contentVerticalAlignment = .center
