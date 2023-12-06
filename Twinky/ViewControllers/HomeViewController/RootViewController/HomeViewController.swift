@@ -41,55 +41,36 @@ class HomeViewController: UIViewController {
         return btn
     }()
     
-    private lazy var searchBar: UISearchBar = {
+    private lazy var textField: TextFieldWithPadding = {
+        let tf = TextFieldWithPadding()
+        tf.borderStyle = .roundedRect
+        tf.layer.cornerRadius = 24
+        tf.backgroundColor = .systemGray4
+        tf.clipsToBounds = true
+        tf.returnKeyType = .done
         
-        let searchBar = UISearchBar()
-        searchBar.searchBarStyle = .minimal
-        searchBar.returnKeyType = .search
-        searchBar.showsCancelButton = false
-        searchBar.showsBookmarkButton = false
-        searchBar.sizeToFit()
         
-        searchBar.searchTextField.placeholder = "Search Movies"
-        searchBar.searchTextField.layer.cornerRadius = 24
-        searchBar.searchTextField.backgroundColor = .systemGray4
-        searchBar.searchTextField.font = .sourceSans(ofSize: 18, style: .regular)
+        tf.rightView = TextFieldIconView.create(
+            size: 40,
+            image: "magnifyingglass",
+            color: .titleColor,
+            contentMode: .left
+        )
+        tf.rightViewMode = .always
         
-        self.definesPresentationContext = false
-        searchBar.delegate = self
-        return searchBar
+        tf.placeholder = "Search movies"
+        tf.font = .sourceSans(ofSize: 20, style: .regular)
+        tf.contentVerticalAlignment = .center
         
+        tf.autocorrectionType = UITextAutocorrectionType.no
+        tf.keyboardType = UIKeyboardType.default
+        tf.returnKeyType = UIReturnKeyType.done
+        tf.clearButtonMode = UITextField.ViewMode.whileEditing
+        
+        tf.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
+        tf.delegate = self
+        return tf
     }()
-    //    private lazy var searchTextField: TextFieldWithPadding = {
-    //        let tf = TextFieldWithPadding()
-    //
-    //        tf.borderStyle = .roundedRect
-    //        tf.layer.cornerRadius = 24
-    //        tf.backgroundColor = .systemGray4
-    //        tf.clipsToBounds = true
-    //
-    //
-    //
-    //        tf.rightView = TextFieldIconView.create(
-    //            size: 40,
-    //            image: "magnifyingglass",
-    //            color: .titleColor,
-    //            contentMode: .left
-    //        )
-    //        tf.rightViewMode = .always
-    //
-    //        tf.placeholder = "Search movies"
-    //        tf.font = .sourceSans(ofSize: 18, style: .regular)
-    //        tf.contentVerticalAlignment = .center
-    //
-    //        tf.autocorrectionType = UITextAutocorrectionType.no
-    //        tf.keyboardType = UIKeyboardType.default
-    //        tf.returnKeyType = UIReturnKeyType.done
-    //        tf.clearButtonMode = UITextField.ViewMode.whileEditing
-    //
-    //        tf.delegate = self
-    //        return tf
-    //    }()
     
     private lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(
@@ -117,15 +98,36 @@ class HomeViewController: UIViewController {
         output?.listButtonTapped()
     }
     
+    @objc func textFieldDidChange() {
+        guard let searchText = textField.text else { return }
+        filtered = searchText.isEmpty ? movieGenres : movieGenres.filter {
+            $0.lowercased().contains(searchText.lowercased())
+        }
+        collectionView.reloadData()
+    }
+    
+    @objc func viewTap() {
+        textField.resignFirstResponder()
+    }
 }
 
 extension HomeViewController: HomeViewInput {
     func configureUI() {
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(
+            UITapGestureRecognizer(
+                target: self,
+                action: #selector(viewTap)
+            )
+        )
+        
         view.backgroundColor = .backgroundView
-        view.addSubview(titleLabel)
-        view.addSubview(listButton)
-        view.addSubview(searchBar)
-        view.addSubview(collectionView)
+        view.addSubview(
+            titleLabel,
+            listButton,
+            textField,
+            collectionView
+        )
         
         titleLabel.snp.makeConstraints {
             $0.left.equalTo(20)
@@ -138,7 +140,7 @@ extension HomeViewController: HomeViewInput {
         }
         //                listButton.addTarget(self, action: #selector(listButtonTouchUpInside), for: .touchUpInside)
         
-        searchBar.snp.makeConstraints {
+        textField.snp.makeConstraints {
             $0.right.equalTo(-20)
             $0.top.equalTo(titleLabel.snp.bottom).offset(20)
             $0.left.equalTo(20)
@@ -146,7 +148,7 @@ extension HomeViewController: HomeViewInput {
         }
         
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(searchBar.snp.bottom).offset(20)
+            $0.top.equalTo(textField.snp.bottom).offset(20)
             $0.left.equalTo(30)
             $0.right.equalTo(-30)
             $0.bottom.equalTo(-100)
@@ -155,44 +157,11 @@ extension HomeViewController: HomeViewInput {
     
 }
 
-extension HomeViewController: UISearchBarDelegate {
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchActive = true
-        self.searchBar.showsCancelButton = true
-        self.collectionView.reloadData()
-    }
-    
-    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        self.searchBar.text = ""
-        searchActive = false
-        self.searchBar.showsCancelButton = false
-        self.searchBar.endEditing(true)
-        self.dismiss(animated: true, completion: nil)
-        self.collectionView.reloadData()
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+extension HomeViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         
-        if searchBar.text! == " "  {
-            filtered = movieGenres
-            collectionView.reloadData()
-        } else {
-            
-            filtered = movieGenres.filter({ (item) -> Bool in
-                
-                return (item.localizedCaseInsensitiveContains(String(searchBar.text!)))
-                
-            })
-            if filtered == [] {
-                filtered = movieGenres
-            }
-            collectionView.reloadData()
-        }
-        
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        collectionView.reloadData()
+        return true
     }
 }
 

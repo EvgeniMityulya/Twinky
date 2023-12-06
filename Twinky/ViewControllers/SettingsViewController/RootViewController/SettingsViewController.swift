@@ -148,9 +148,11 @@ extension SettingsViewController: SettingsViewInput {
     func configureUI() {
         
         view.backgroundColor = .backgroundViewColor
-        view.addSubview(titleLabel)
-        view.addSubview(tableProfileView)
-        view.addSubview(tableSettingsView)
+        view.addSubview(
+            titleLabel,
+            tableProfileView,
+            tableSettingsView
+        )
         
         titleLabel.snp.makeConstraints {
             $0.left.equalTo(20)

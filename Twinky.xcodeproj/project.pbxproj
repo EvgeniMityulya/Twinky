@@ -274,13 +274,13 @@
 		8407C9502B17136B00808DA4 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84598F6E2B1D21A40062A64E /* CustomViews */,
 				84936BCE2B191C7D0028BDF7 /* RootViewController */,
-				84936BC02B18FA780028BDF7 /* InformationViewController */,
-				84936BC22B18FB040028BDF7 /* LanguageViewController */,
-				84936BCA2B191A340028BDF7 /* NotificationsViewController */,
-				84936BC12B18FAD60028BDF7 /* AppSettingsViewController */,
 				84936BC32B1919A50028BDF7 /* HelpAndSupportViewController */,
+				84936BC02B18FA780028BDF7 /* InformationViewController */,
+				84936BC12B18FAD60028BDF7 /* AppSettingsViewController */,
+				84936BCA2B191A340028BDF7 /* NotificationsViewController */,
+				84936BC22B18FB040028BDF7 /* LanguageViewController */,
+				84598F6E2B1D21A40062A64E /* CustomViews */,
 				8407C95E2B17C51500808DA4 /* Data */,
 			);
 			path = SettingsViewController;
