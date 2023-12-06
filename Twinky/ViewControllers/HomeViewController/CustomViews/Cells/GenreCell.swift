@@ -11,7 +11,7 @@ import SnapKit
 class GenreCell: UICollectionViewCell {
     static let identifier = "GenreCell"
     
-    private lazy var genreLabel: UILabel = {
+    public lazy var genreLabel: UILabel = {
         let lbl = UILabel()
         
         lbl.font = .sourceSans(ofSize: 18, style: .bold)

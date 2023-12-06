@@ -15,8 +15,12 @@ protocol HomeViewInput: AnyObject {
 class HomeViewController: UIViewController {
     public var output: HomeViewOutput?
     
+    private var searchActive: Bool = false
+    
     private let movieGenres = ["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Sci-Fi", "Thriller", "Animation", "Documentary", "Crime", "Family", "History", "Music", "Sport", "War", "Biography", "Western", "Musical", "Romantic Comedy", "Superhero", "Spy", "Supernatural"]
-
+    
+    private lazy var filtered = movieGenres
+    
     private lazy var titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Discover Movies"
@@ -37,36 +41,55 @@ class HomeViewController: UIViewController {
         return btn
     }()
     
-    private lazy var searchTextField: TextFieldWithPadding = {
-        let tf = TextFieldWithPadding()
+    private lazy var searchBar: UISearchBar = {
         
-        tf.borderStyle = .roundedRect
-        tf.layer.cornerRadius = 24
-        tf.backgroundColor = .systemGray4
-        tf.clipsToBounds = true
+        let searchBar = UISearchBar()
+        searchBar.searchBarStyle = .minimal
+        searchBar.returnKeyType = .search
+        searchBar.showsCancelButton = false
+        searchBar.showsBookmarkButton = false
+        searchBar.sizeToFit()
         
+        searchBar.searchTextField.placeholder = "Search Movies"
+        searchBar.searchTextField.layer.cornerRadius = 24
+        searchBar.searchTextField.backgroundColor = .systemGray4
+        searchBar.searchTextField.font = .sourceSans(ofSize: 18, style: .regular)
         
-
-        tf.rightView = TextFieldIconView.create(
-            size: 40,
-            image: "magnifyingglass",
-            color: .titleColor,
-            contentMode: .left
-        )
-        tf.rightViewMode = .always
-
-        tf.placeholder = "Search movies"
-        tf.font = .sourceSans(ofSize: 18, style: .regular)
-        tf.contentVerticalAlignment = .center
+        self.definesPresentationContext = false
+        searchBar.delegate = self
+        return searchBar
         
-        tf.autocorrectionType = UITextAutocorrectionType.no
-        tf.keyboardType = UIKeyboardType.default
-        tf.returnKeyType = UIReturnKeyType.done
-        tf.clearButtonMode = UITextField.ViewMode.whileEditing
-        
-        tf.delegate = self
-        return tf
     }()
+    //    private lazy var searchTextField: TextFieldWithPadding = {
+    //        let tf = TextFieldWithPadding()
+    //
+    //        tf.borderStyle = .roundedRect
+    //        tf.layer.cornerRadius = 24
+    //        tf.backgroundColor = .systemGray4
+    //        tf.clipsToBounds = true
+    //
+    //
+    //
+    //        tf.rightView = TextFieldIconView.create(
+    //            size: 40,
+    //            image: "magnifyingglass",
+    //            color: .titleColor,
+    //            contentMode: .left
+    //        )
+    //        tf.rightViewMode = .always
+    //
+    //        tf.placeholder = "Search movies"
+    //        tf.font = .sourceSans(ofSize: 18, style: .regular)
+    //        tf.contentVerticalAlignment = .center
+    //
+    //        tf.autocorrectionType = UITextAutocorrectionType.no
+    //        tf.keyboardType = UIKeyboardType.default
+    //        tf.returnKeyType = UIReturnKeyType.done
+    //        tf.clearButtonMode = UITextField.ViewMode.whileEditing
+    //
+    //        tf.delegate = self
+    //        return tf
+    //    }()
     
     private lazy var collectionView: UICollectionView = {
         let cv = UICollectionView(
@@ -101,7 +124,7 @@ extension HomeViewController: HomeViewInput {
         view.backgroundColor = .backgroundView
         view.addSubview(titleLabel)
         view.addSubview(listButton)
-        view.addSubview(searchTextField)
+        view.addSubview(searchBar)
         view.addSubview(collectionView)
         
         titleLabel.snp.makeConstraints {
@@ -113,9 +136,9 @@ extension HomeViewController: HomeViewInput {
             $0.right.equalTo(-20)
             $0.centerY.equalTo(titleLabel)
         }
-//                listButton.addTarget(self, action: #selector(listButtonTouchUpInside), for: .touchUpInside)
+        //                listButton.addTarget(self, action: #selector(listButtonTouchUpInside), for: .touchUpInside)
         
-        searchTextField.snp.makeConstraints {
+        searchBar.snp.makeConstraints {
             $0.right.equalTo(-20)
             $0.top.equalTo(titleLabel.snp.bottom).offset(20)
             $0.left.equalTo(20)
@@ -123,7 +146,7 @@ extension HomeViewController: HomeViewInput {
         }
         
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(searchTextField.snp.bottom).offset(20)
+            $0.top.equalTo(searchBar.snp.bottom).offset(20)
             $0.left.equalTo(30)
             $0.right.equalTo(-30)
             $0.bottom.equalTo(-100)
@@ -132,8 +155,45 @@ extension HomeViewController: HomeViewInput {
     
 }
 
-extension HomeViewController: UITextFieldDelegate {
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+        searchActive = true
+        self.searchBar.showsCancelButton = true
+        self.collectionView.reloadData()
+    }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.text = ""
+        searchActive = false
+        self.searchBar.showsCancelButton = false
+        self.searchBar.endEditing(true)
+        self.dismiss(animated: true, completion: nil)
+        self.collectionView.reloadData()
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        if searchBar.text! == " "  {
+            filtered = movieGenres
+            collectionView.reloadData()
+        } else {
+            
+            filtered = movieGenres.filter({ (item) -> Bool in
+                
+                return (item.localizedCaseInsensitiveContains(String(searchBar.text!)))
+                
+            })
+            if filtered == [] {
+                filtered = movieGenres
+            }
+            collectionView.reloadData()
+        }
+        
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        collectionView.reloadData()
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
@@ -146,7 +206,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        movieGenres.count
+        filtered.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -155,7 +215,7 @@ extension HomeViewController: UICollectionViewDataSource {
             for: indexPath
         ) as? GenreCell
         else { return UICollectionViewCell() }
-        cell.configure(withGenre: movieGenres[indexPath.row])
+        cell.configure(withGenre: filtered[indexPath.row])
         return cell
     }
 }
