@@ -50,6 +50,7 @@
 		846C28002B1DCF530071C171 /* HomeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C27FF2B1DCF530071C171 /* HomeBuilder.swift */; };
 		846C28022B1DCFC30071C171 /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C28012B1DCFC30071C171 /* ProfileBuilder.swift */; };
 		846C28042B1DCFF90071C171 /* SettingsBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C28032B1DCFF90071C171 /* SettingsBuilder.swift */; };
+		846C28082B1F9A870071C171 /* TextFieldIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846C28072B1F9A870071C171 /* TextFieldIconView.swift */; };
 		84936BBB2B18DEB90028BDF7 /* SettingsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84936BBA2B18DEB90028BDF7 /* SettingsPresenter.swift */; };
 		84936BBF2B18F2A40028BDF7 /* LanguageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84936BBE2B18F2A40028BDF7 /* LanguageViewController.swift */; };
 		84936BC52B1919DF0028BDF7 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84936BC42B1919DF0028BDF7 /* HelpViewController.swift */; };
@@ -102,6 +103,7 @@
 		846C27FF2B1DCF530071C171 /* HomeBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBuilder.swift; sourceTree = "<group>"; };
 		846C28012B1DCFC30071C171 /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileBuilder.swift; sourceTree = "<group>"; };
 		846C28032B1DCFF90071C171 /* SettingsBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBuilder.swift; sourceTree = "<group>"; };
+		846C28072B1F9A870071C171 /* TextFieldIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldIconView.swift; sourceTree = "<group>"; };
 		84936BBA2B18DEB90028BDF7 /* SettingsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPresenter.swift; sourceTree = "<group>"; };
 		84936BBE2B18F2A40028BDF7 /* LanguageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LanguageViewController.swift; sourceTree = "<group>"; };
 		84936BC42B1919DF0028BDF7 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
@@ -272,13 +274,13 @@
 		8407C9502B17136B00808DA4 /* SettingsViewController */ = {
 			isa = PBXGroup;
 			children = (
-				84598F6E2B1D21A40062A64E /* CustomViews */,
 				84936BCE2B191C7D0028BDF7 /* RootViewController */,
-				84936BC02B18FA780028BDF7 /* InformationViewController */,
-				84936BC22B18FB040028BDF7 /* LanguageViewController */,
-				84936BCA2B191A340028BDF7 /* NotificationsViewController */,
-				84936BC12B18FAD60028BDF7 /* AppSettingsViewController */,
 				84936BC32B1919A50028BDF7 /* HelpAndSupportViewController */,
+				84936BC02B18FA780028BDF7 /* InformationViewController */,
+				84936BC12B18FAD60028BDF7 /* AppSettingsViewController */,
+				84936BCA2B191A340028BDF7 /* NotificationsViewController */,
+				84936BC22B18FB040028BDF7 /* LanguageViewController */,
+				84598F6E2B1D21A40062A64E /* CustomViews */,
 				8407C95E2B17C51500808DA4 /* Data */,
 			);
 			path = SettingsViewController;
@@ -305,8 +307,9 @@
 		84598F6B2B1D21510062A64E /* CustomViews */ = {
 			isa = PBXGroup;
 			children = (
+				846C28062B1F9A6F0071C171 /* TextFieldIcon */,
+				846C28052B1F9A630071C171 /* TextFields */,
 				84598F6F2B1D2D420062A64E /* Cells */,
-				84598F6C2B1D218C0062A64E /* TextFieldWithPadding.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -325,6 +328,22 @@
 				84598F702B1D2D5A0062A64E /* GenreCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		846C28052B1F9A630071C171 /* TextFields */ = {
+			isa = PBXGroup;
+			children = (
+				84598F6C2B1D218C0062A64E /* TextFieldWithPadding.swift */,
+			);
+			path = TextFields;
+			sourceTree = "<group>";
+		};
+		846C28062B1F9A6F0071C171 /* TextFieldIcon */ = {
+			isa = PBXGroup;
+			children = (
+				846C28072B1F9A870071C171 /* TextFieldIconView.swift */,
+			);
+			path = TextFieldIcon;
 			sourceTree = "<group>";
 		};
 		84936BC02B18FA780028BDF7 /* InformationViewController */ = {
@@ -490,6 +509,7 @@
 				7B5AA21E2B15FDF20052237D /* TabBarController.swift in Sources */,
 				84598F662B1D09CE0062A64E /* HomePresenter.swift in Sources */,
 				84936BC72B1919F30028BDF7 /* AppSettingsViewController.swift in Sources */,
+				846C28082B1F9A870071C171 /* TextFieldIconView.swift in Sources */,
 				7B5AA2822B18DF300052237D /* ImageCollectionViewCell.swift in Sources */,
 				7B5AA2282B1607830052237D /* UIColor + Extensions.swift in Sources */,
 				8407C95D2B17BA8900808DA4 /* SettingsViewsContent.swift in Sources */,

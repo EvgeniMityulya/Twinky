@@ -15,8 +15,12 @@ protocol HomeViewInput: AnyObject {
 class HomeViewController: UIViewController {
     public var output: HomeViewOutput?
     
+    private var searchActive: Bool = false
+    
     private let movieGenres = ["Action", "Adventure", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Sci-Fi", "Thriller", "Animation", "Documentary", "Crime", "Family", "History", "Music", "Sport", "War", "Biography", "Western", "Musical", "Romantic Comedy", "Superhero", "Spy", "Supernatural"]
-
+    
+    private lazy var filtered = movieGenres
+    
     private lazy var titleLabel: UILabel = {
         let lbl = UILabel()
         lbl.text = "Discover Movies"
@@ -37,16 +41,25 @@ class HomeViewController: UIViewController {
         return btn
     }()
     
-    private lazy var searchTextField: TextFieldWithPadding = {
+    private lazy var textField: TextFieldWithPadding = {
         let tf = TextFieldWithPadding()
-        
         tf.borderStyle = .roundedRect
         tf.layer.cornerRadius = 24
         tf.backgroundColor = .systemGray4
         tf.clipsToBounds = true
+        tf.returnKeyType = .done
+        
+        
+        tf.rightView = TextFieldIconView.create(
+            size: 40,
+            image: "magnifyingglass",
+            color: .titleColor,
+            contentMode: .left
+        )
+        tf.rightViewMode = .always
         
         tf.placeholder = "Search movies"
-        tf.font = .sourceSans(ofSize: 18, style: .regular)
+        tf.font = .sourceSans(ofSize: 20, style: .regular)
         tf.contentVerticalAlignment = .center
         
         tf.autocorrectionType = UITextAutocorrectionType.no
@@ -54,6 +67,7 @@ class HomeViewController: UIViewController {
         tf.returnKeyType = UIReturnKeyType.done
         tf.clearButtonMode = UITextField.ViewMode.whileEditing
         
+        tf.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
         tf.delegate = self
         return tf
     }()
@@ -84,15 +98,36 @@ class HomeViewController: UIViewController {
         output?.listButtonTapped()
     }
     
+    @objc func textFieldDidChange() {
+        guard let searchText = textField.text else { return }
+        filtered = searchText.isEmpty ? movieGenres : movieGenres.filter {
+            $0.lowercased().contains(searchText.lowercased())
+        }
+        collectionView.reloadData()
+    }
+    
+    @objc func viewTap() {
+        textField.resignFirstResponder()
+    }
 }
 
 extension HomeViewController: HomeViewInput {
     func configureUI() {
+        view.isUserInteractionEnabled = true
+        view.addGestureRecognizer(
+            UITapGestureRecognizer(
+                target: self,
+                action: #selector(viewTap)
+            )
+        )
+        
         view.backgroundColor = .backgroundView
-        view.addSubview(titleLabel)
-        view.addSubview(listButton)
-        view.addSubview(searchTextField)
-        view.addSubview(collectionView)
+        view.addSubview(
+            titleLabel,
+            listButton,
+            textField,
+            collectionView
+        )
         
         titleLabel.snp.makeConstraints {
             $0.left.equalTo(20)
@@ -103,9 +138,9 @@ extension HomeViewController: HomeViewInput {
             $0.right.equalTo(-20)
             $0.centerY.equalTo(titleLabel)
         }
-//                listButton.addTarget(self, action: #selector(listButtonTouchUpInside), for: .touchUpInside)
+        //                listButton.addTarget(self, action: #selector(listButtonTouchUpInside), for: .touchUpInside)
         
-        searchTextField.snp.makeConstraints {
+        textField.snp.makeConstraints {
             $0.right.equalTo(-20)
             $0.top.equalTo(titleLabel.snp.bottom).offset(20)
             $0.left.equalTo(20)
@@ -113,7 +148,7 @@ extension HomeViewController: HomeViewInput {
         }
         
         collectionView.snp.makeConstraints {
-            $0.top.equalTo(searchTextField.snp.bottom).offset(20)
+            $0.top.equalTo(textField.snp.bottom).offset(20)
             $0.left.equalTo(30)
             $0.right.equalTo(-30)
             $0.bottom.equalTo(-100)
@@ -123,7 +158,11 @@ extension HomeViewController: HomeViewInput {
 }
 
 extension HomeViewController: UITextFieldDelegate {
-    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        return true
+    }
 }
 
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
@@ -136,7 +175,7 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
 extension HomeViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        movieGenres.count
+        filtered.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -145,7 +184,7 @@ extension HomeViewController: UICollectionViewDataSource {
             for: indexPath
         ) as? GenreCell
         else { return UICollectionViewCell() }
-        cell.configure(withGenre: movieGenres[indexPath.row])
+        cell.configure(withGenre: filtered[indexPath.row])
         return cell
     }
 }
