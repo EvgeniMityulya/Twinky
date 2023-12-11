@@ -121,8 +121,6 @@ final class ProfileViewController: UIViewController {
         return clv
     }()
     
-    
-    
     private var userFilmsView = UserInfoView()
     private var userContactsView = UserInfoView()
     private var userGenreView = UserInfoView()
